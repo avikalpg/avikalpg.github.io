@@ -1,0 +1,75 @@
+<html>
+<head>
+	<title>Hot Stuff</title>
+	<style type="text/css">
+	@import "compass/css3";
+
+	body {
+	  font-family: 'Ubuntu';
+	}
+
+	ul {
+	  list-style-type: none;
+	  margin: 0;
+	  padding: 0;
+	}
+
+	li {
+	  /*font: 200 20px/1.5 Helvetica, Verdana, sans-serif;*/
+	  border-bottom: 1px solid #ccc;
+	}
+
+	li:last-child {
+	  border: none;
+	}
+
+	li p {
+	  text-decoration: none;
+	  color: #000;
+
+	  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+	  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+	  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+	  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+	  transition: font-size 0.3s ease, background-color 0.3s ease;
+	  display: block;
+	  /*width: 200px;*/
+	}
+
+	li p#body {
+		display: none;
+	}
+
+	li:hover p#heading {
+		font-size: 24px;
+	}
+
+	li:hover p#body {
+		display: block;
+		/*font-size: 15px;*/
+	}
+
+	</style>
+</head>
+<body style="width:90%">
+	<ul style="list-style-type:None; margin:0; padding:0">
+		<li>
+			<p id="heading">Visual Search at VisageMap</p>
+			<p id="body">
+				As a part of an internship, along side <a href="http://home.iitk.ac.in/~ayushmi/">Ayush Mittal</a> and <a href="http://home.iitk.ac.in/~ujain/index.html">Unnat Jain</a>, working on 
+				getting an optimal algorithm for visual search. 
+			</p>
+		</li>
+		<li>
+			<p id="heading">Course Helper for IIT Kanpur</p>
+			<p id="body">
+				Currently working with <a href="http://himanshuchoudhary.com/">Himanshu Choudhary</a>
+				on an android plus web project which will make the lives of the students at IIT
+				Kanpur easier by assisting them in choosing their courses wisely. The students will be
+				able to complete their program on time and will usually be suggested courses that they
+				will be interested in.
+			</p>
+		</li>
+	</ul>
+</body>
+</html>
