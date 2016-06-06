@@ -216,6 +216,6 @@ Below you can find similar links to some other corpi:</br>
 <br/>
 <hline>
 <br/>
-<b>Update (10Aug2015):</b>To download the code used to generate these file, click <a href="code.zip">here</a>.
+<b>Update (10Aug2015):</b>To download the code used to generate these file, click <a href="https://github.com/avikalpg/avikalpg.github.io/tree/master/cs671/hw1/code">here</a>.
 </body>
 </html>
