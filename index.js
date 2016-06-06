@@ -10,6 +10,8 @@ $(document).ready(function(){
 	ga('send', 'pageview');
 	// End Google Analytics
 
+	// console.log(ga.q);
+
 	$("div.wrapper div#main div#index").show();
 	$("div.wrapper div#main div#acads").hide();
 	$("div.wrapper div#main div#projects").hide();
@@ -20,24 +22,36 @@ $(document).ready(function(){
 		$("div.wrapper div#main div#acads").hide();
 		$("div.wrapper div#main div#projects").hide();
 		$("div.wrapper div#main div#extra").hide();
+
+		ga('create', 'UA-78761399-1', 'auto');
+		ga('send', 'pageview');
 	});
 	$("div.wrapper div#main div#menu a.acads").click(function(){
 		$("div.wrapper div#main div#index").hide();
 		$("div.wrapper div#main div#acads").show();
 		$("div.wrapper div#main div#projects").hide();
 		$("div.wrapper div#main div#extra").hide();
+
+		ga('create', 'UA-78761399-1', 'auto', 'acadsTracker');
+		ga('acadsTracker.send', 'pageview');
 	});
-	$("div.wrapper div#main div#menu a.acads").click(function(){
+	$("div.wrapper div#main div#menu a.projects").click(function(){
 		$("div.wrapper div#main div#index").hide();
 		$("div.wrapper div#main div#acads").hide();
 		$("div.wrapper div#main div#projects").show();
 		$("div.wrapper div#main div#extra").hide();
+
+		ga('create', 'UA-78761399-1', 'auto', 'projectsTracker');
+		ga('projectsTracker.send', 'pageview');
 	});
 	$("div.wrapper div#main div#menu a.extra").click(function(){
 		$("div.wrapper div#main div#index").hide();
 		$("div.wrapper div#main div#acads").hide();
 		$("div.wrapper div#main div#projects").hide();
 		$("div.wrapper div#main div#extra").show();
+
+		ga('create', 'UA-78761399-1', 'auto', 'extraTracker');
+		ga('extraTracker.send', 'pageview');
 	});
 
 });
