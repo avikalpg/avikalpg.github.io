@@ -16,6 +16,7 @@ $(document).ready(function(){
 	$("div.wrapper div#main div#acads").hide();
 	$("div.wrapper div#main div#projects").hide();
 	$("div.wrapper div#main div#extra").hide();
+	$("div.wrapper div#main div#blog_content").hide();
 
 	$("div.wrapper div#main div#menu a.index").click(function(){
 		$("div.wrapper div#main div#picture").show();
@@ -23,6 +24,7 @@ $(document).ready(function(){
 		$("div.wrapper div#main div#acads").hide();
 		$("div.wrapper div#main div#projects").hide();
 		$("div.wrapper div#main div#extra").hide();
+		$("div.wrapper div#main div#blog_content").hide();
 
 		ga('create', 'UA-78761399-1', 'auto');
 		ga('send', 'pageview');
@@ -33,6 +35,7 @@ $(document).ready(function(){
 		$("div.wrapper div#main div#acads").show();
 		$("div.wrapper div#main div#projects").hide();
 		$("div.wrapper div#main div#extra").hide();
+		$("div.wrapper div#main div#blog_content").hide();
 
 		ga('create', 'UA-78761399-1', 'auto', 'acadsTracker');
 		ga('acadsTracker.send', 'pageview');
@@ -43,6 +46,7 @@ $(document).ready(function(){
 		$("div.wrapper div#main div#acads").hide();
 		$("div.wrapper div#main div#projects").show();
 		$("div.wrapper div#main div#extra").hide();
+		$("div.wrapper div#main div#blog_content").hide();
 
 		ga('create', 'UA-78761399-1', 'auto', 'projectsTracker');
 		ga('projectsTracker.send', 'pageview');
@@ -53,6 +57,7 @@ $(document).ready(function(){
 		$("div.wrapper div#main div#acads").hide();
 		$("div.wrapper div#main div#projects").hide();
 		$("div.wrapper div#main div#extra").show();
+		$("div.wrapper div#main div#blog_content").hide();
 
 		ga('create', 'UA-78761399-1', 'auto', 'extraTracker');
 		ga('extraTracker.send', 'pageview');
@@ -63,6 +68,7 @@ $(document).ready(function(){
 		$("div.wrapper div#main div#acads").hide();
 		$("div.wrapper div#main div#projects").hide();
 		$("div.wrapper div#main div#extra").hide();
+		$("div.wrapper div#main div#blog_content").show();
 
 		ga('create', 'UA-78761399-1', 'auto', 'blogTracker');
 		ga('blogTracker.send', 'pageview');
