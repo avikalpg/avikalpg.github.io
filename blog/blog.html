@@ -3,6 +3,9 @@
 	<title>Blog</title>
 	<link rel="shortcut icon" href="images/favicon.ico">
 	<link rel="stylesheet" href="blog_layout.css" />
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="blog.js"></script>
 </head>
 <body style="width:90%">
 	<div id="menu" style="font-family:'Ubuntu Condensed'">
@@ -17,7 +20,10 @@
 		</font>
 	</div>
 	<div id="content">
-		<div>List of all blogs</div>
+		<div id="blogs">
+			<p>List of all blogs</p>
+			<ul id="blog_list"></ul>
+		</div>
 	</div>
 </body>
 </html>
