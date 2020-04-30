@@ -4,7 +4,11 @@ import os
 from bs4 import BeautifulSoup as bs
 
 TAGS = ['tec', 'art', 'fit', 'ent', 'sdg']
+
+TITLE_LABEL = "title"
 TAGS_LABEL = "tags"
+IMAGE_LABEL = "image"
+DESCRIPTION_LABEL = "description"
 
 articles_dir = "../blog/articles/"
 lists_dir = "../blog/list_pages/"
@@ -45,6 +49,15 @@ def main():
 	print(filter_articles)
 
 	# create HTML files for each of the blog lists according to tags
+	for tag in TAGS:
+		htmlContent = ""
+		for article in filter_articles[tag]:
+			htmlContent += "<div>\n"
+			htmlContent += "\t<h2>" + all_meta[article][ TITLE_LABEL ] + "</h2>\n"
+			htmlContent += "\t<p>" + all_meta[article][ DESCRIPTION_LABEL ] + "</p>\n"
+			htmlContent += "</div>\n"
+		with open(lists_dir + tag + ".html", 'w+') as f:
+			f.write(htmlContent)
 
 if __name__ == '__main__':
 	main()
