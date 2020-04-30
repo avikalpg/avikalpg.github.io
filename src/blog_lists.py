@@ -59,5 +59,14 @@ def main():
 		with open(lists_dir + tag + ".html", 'w+') as f:
 			f.write(htmlContent)
 
+	htmlContent = ""
+	for article in all_articles:
+		htmlContent += "<div>\n"
+		htmlContent += "\t<h2>" + all_meta[article][ TITLE_LABEL ] + "</h2>\n"
+		htmlContent += "\t<p>" + all_meta[article][ DESCRIPTION_LABEL ] + "</p>\n"
+		htmlContent += "</div>\n"
+	with open(lists_dir + "all.html", 'w+') as f:
+		f.write(htmlContent)
+
 if __name__ == '__main__':
 	main()
