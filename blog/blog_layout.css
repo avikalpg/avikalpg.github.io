@@ -25,13 +25,14 @@ body {
 	border-radius:12px;
 	background:#ddf;
 	padding:5px;
-	width:250px;
+	width:200px;
 }
 #menu ul{
 	overflow-x:hidden;
 	overflow-y:hidden;
 	list-style-type: none;
 	padding-inline-start:15px;
+	padding-inline-end:15px;
 }
 #menu ul li{
 	padding:5px;
