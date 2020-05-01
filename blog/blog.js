@@ -69,5 +69,5 @@ $(document).ready(function(){
 		ga('create', 'UA-78761399-1', 'auto');
 		ga('send', 'pageview');
 	});
-	
+
 });

@@ -34,7 +34,7 @@ def main():
 	# get meta information of all articles
 	all_meta = dict()
 	for article in all_articles:
-		meta = getMetaInfo("../blog/articles/" + article)
+		meta = getMetaInfo(articles_dir + article)
 		all_meta[article] = meta
 
 	# print(all_meta)
@@ -50,19 +50,19 @@ def main():
 
 	# create HTML files for each of the blog lists according to tags
 	for tag in TAGS:
-		htmlContent = ""
+		htmlContent = "\n"
 		for article in filter_articles[tag]:
-			htmlContent += "<div>\n"
-			htmlContent += "\t<h2>" + all_meta[article][ TITLE_LABEL ] + "</h2>\n"
+			htmlContent += "<div class='article'>\n"
+			htmlContent += "\t<h2><a href='" + articles_dir + article + "'>" + all_meta[article][ TITLE_LABEL ] + "</a></h2>\n"
 			htmlContent += "\t<p>" + all_meta[article][ DESCRIPTION_LABEL ] + "</p>\n"
 			htmlContent += "</div>\n"
 		with open(lists_dir + tag + ".html", 'w+') as f:
 			f.write(htmlContent)
 
-	htmlContent = ""
+	htmlContent = "\n"
 	for article in all_articles:
-		htmlContent += "<div>\n"
-		htmlContent += "\t<h2>" + all_meta[article][ TITLE_LABEL ] + "</h2>\n"
+		htmlContent += "<div class='article'>\n"
+		htmlContent += "\t<h2><a href='" + articles_dir + article + "'>" + all_meta[article][ TITLE_LABEL ] + "</a></h2>\n"
 		htmlContent += "\t<p>" + all_meta[article][ DESCRIPTION_LABEL ] + "</p>\n"
 		htmlContent += "</div>\n"
 	with open(lists_dir + "all.html", 'w+') as f:
