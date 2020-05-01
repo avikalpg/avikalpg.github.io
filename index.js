@@ -69,6 +69,7 @@ $(document).ready(function(){
 		$("div.wrapper div#main div#projects").hide();
 		$("div.wrapper div#main div#extra").hide();
 		$("div.wrapper div#main div#blog_content").show();
+		$( "div.wrapper div#main div#blog_content iframe" ).attr( "src", function ( i, val ) { return val; });
 
 		ga('create', 'UA-78761399-1', 'auto', 'blogTracker');
 		ga('blogTracker.send', 'pageview');
