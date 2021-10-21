@@ -30,7 +30,7 @@ def getMetaInfo(fileName):
     return info
 
 def main():
-    all_articles = os.listdir(articles_dir)
+    all_articles = [f.name for f in os.scandir(articles_dir) if f.is_file()]
 
     # get meta information of all articles
     all_meta = dict()
