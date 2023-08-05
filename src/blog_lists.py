@@ -2,6 +2,7 @@
 
 import os
 from bs4 import BeautifulSoup as bs
+from parse_date_string import get_date_from_string
 
 TAGS = ['tec', 'art', 'fit', 'ent', 'sdg']
 
@@ -42,7 +43,8 @@ def main():
 
     # filter articles based on tags
     filter_articles = {k:[] for k in TAGS}
-    for article in all_meta.keys():
+    sorted_articles = sorted(all_meta.items(), key=lambda all_meta_item: get_date_from_string(all_meta_item[1].get('date', '')), reverse=True)
+    for article in [all_meta_item[0] for all_meta_item in sorted_articles]: # all_meta.keys(), but sorted
         for tag in all_meta[article][ TAGS_LABEL ]:
             filter_articles[tag].append( article )
 
