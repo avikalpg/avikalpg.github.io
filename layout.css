@@ -29,7 +29,7 @@ body {
 	float:right;
 }
 
-#facebook, #googlePlus, #twitter, #resumee, #linkedIn, #github {
+#facebook, #medium, #twitter, #resumee, #linkedIn, #github, #mastodon {
 	width:40px;
 	height:40px;
 	float:left;
