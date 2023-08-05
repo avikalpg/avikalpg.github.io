@@ -64,7 +64,7 @@ def main():
             f.write(htmlContent)
 
     htmlContent = "\n"
-    for article in all_articles:
+    for article in [article_meta[0] for article_meta in sorted_articles]: # all_articles, but sorted chronologically
         htmlContent += "<div class='article'>\n"
         htmlContent += "\t<h2><a href='" + articles_dir + article + "'>" + all_meta[article][ TITLE_LABEL ] + "</a></h2>\n"
         htmlContent += "\t<small>" + all_meta[article].get( DATE_LABEL, '' ) + "</small>\n"
