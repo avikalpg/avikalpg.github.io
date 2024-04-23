@@ -25,7 +25,7 @@ jobs:
         python -m pip install -r ./src/requirements.txt
 
     - name: Run Python script
-      run: python3 ./src/blog_list.py
+      run: python3 ./src/blog_lists.py
 
     - name: Commit and push if it changed
       run: |
