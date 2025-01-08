@@ -1,0 +1,112 @@
+* {
+	box-sizing: border-box;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+#header {
+	position: sticky;
+	top: 0;
+	background: linear-gradient(to right, #2b5876, #4e4376);
+	padding: 1rem;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: xx-large;
+	color: white;
+}
+
+body {
+	background: ddddff;
+	font-weight: lighter;
+}
+
+.socialLinks {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+
+.socialLinks a {
+	transition: transform 0.2s ease;
+}
+
+.socialLinks a:hover {
+	transform: translateY(-2px);
+}
+
+.wrapper {
+	/* for making the footer stick to the bottom */
+	min-height: 100%;
+	height: auto !important;
+	/*height: 100%;*/
+	margin-top: 100px;
+	margin: 0 auto -5em;
+	/* general css starts here */
+
+	width: 1000px;
+}
+
+#main {
+	float: left;
+	width: 100%;
+	background: white;
+	border-radius: 12px;
+	padding: 0px 10px 10px 10px;
+}
+
+#menu {
+	background: #ddf;
+}
+
+#menu ul {
+	overflow-x: hidden;
+	overflow-y: hidden;
+	list-style-type: none;
+}
+
+#menu ul li {
+	float: left;
+	padding: 5px;
+	margin: 0px 30px 0px 0px;
+	color: #335;
+	font-size: 18px;
+	line-height: 1.6;
+}
+
+#menu ul li:hover {
+	background-color: #cce;
+}
+
+div.wrapper div#main div#content {
+	float: left;
+	margin: 0px 0px 0px 12px;
+	width: 620px;
+}
+
+div.wrapper div#main div#content div div {
+	border-radius: 12px;
+	margin-bottom: 10px;
+	background: #ddf;
+	padding: 5px 15px 15px 15px;
+	width: 100%;
+}
+
+div.wrapper div#main div#picture {
+	float: left;
+	border-radius: 12px;
+	background: #ddf;
+	padding: 15px;
+	width: 300px;
+}
+
+.footer,
+.push {
+	clear: both;
+	height: 5em;
+}
+
+#footer {
+	background: #346;
+	padding: 5px;
+}

@@ -1,0 +1,8 @@
+To a student who has completed ESC101 course:-
+
+In ESC101, you were introduced to programming on terminal. But now it depends on you, for what do you want to code. In my case, I code for websites. And among other languages, I prefer PHP the most. Firstly because it is very simple to learn, and once you get introduced, you can start right away. Most of it's code looks exactly as C, and a lot is also similar to perl scripting language, which is also a familiar language for 2nd year CSE students. Another reason for me to like PHP is it has all the features I would like to possibly use any website I would like to develop. You might like to know that facebook.com is also coded in PHP.
+
+To an aunt, who surfs internet:-
+
+Aunty, do you know I can make things that you enjoy on the internet? Actually there is a programming language called PHP, which makes the images appearing on your webpage interactive. There are other languages also for this purpose, but PHP is the easiest to learn for any beginner programmer.
+You might have heard that these webpages are written in a markup language called HTML. You know, the PHP language I am talking about can be written in the form of HTML tags. In fact, PHP and HTML codes can be written in an intermingled fashion, given you all the liberty to write anything anywhere.

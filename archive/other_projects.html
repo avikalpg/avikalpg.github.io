@@ -1,0 +1,80 @@
+<html>
+
+<head>
+	<title>Hot Stuff</title>
+	<style type="text/css">
+		@import "compass/css3";
+
+		body {
+			font-family: 'Ubuntu', sans-serif;
+		}
+
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		li {
+			/*font: 200 20px/1.5 Helvetica, Verdana, sans-serif;*/
+			border-bottom: 1px solid #ccc;
+		}
+
+		li:last-child {
+			border: none;
+		}
+
+		li p {
+			text-decoration: none;
+			color: #000;
+
+			-webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+			-moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+			-o-transition: font-size 0.3s ease, background-color 0.3s ease;
+			-ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+			transition: font-size 0.3s ease, background-color 0.3s ease;
+			display: block;
+			/*width: 200px;*/
+		}
+
+		li p#body {
+			display: none;
+		}
+
+		li:hover p#heading {
+			font-size: 24px;
+		}
+
+		li:hover p#body {
+			display: block;
+			position: relative;
+			top: -20px;
+			left: 0px;
+		}
+	</style>
+</head>
+
+<body style="width:90%">
+	<ul style="list-style-type:None; margin:0; padding:0">
+		<li>
+			<p id="heading">Safety Scissor Lift <i>
+					<font size=2>Jan-Apr'14</font>
+				</i></p>
+			<p id="body"></p>
+		</li>
+		<li>
+			<p id="heading">Metal Jeep Model <i>
+					<font size=2>Sep-Nov'13</font>
+				</i></p>
+			<p id="body"></p>
+		</li>
+		<li>
+			<p id="heading">Ridable Hover-Board <i>
+					<font size=2>May-June'13</font>
+				</i></p>
+			<p id="body"></p>
+		</li>
+	</ul>
+</body>
+
+</html>
