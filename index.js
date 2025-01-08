@@ -30,7 +30,7 @@ $(document).ready(function () {
 			const response = await fetch('https://api.github.com/users/avikalpg/repos?sort=updated&direction=desc');
 			const repos = await response.json();
 			const filteredRepos = repos
-				.filter(repo => !repo.fork)
+			// .filter(repo => !repo.fork)
 			// .sort((a, b) => b.stargazers_count - a.stargazers_count)
 
 			const carouselTrack = $('.carousel-track');
@@ -60,7 +60,7 @@ $(document).ready(function () {
 
 			function updateCarousel() {
 				if (isAutoScrolling) {
-					currentIndex++;
+					currentIndex += 0.1;
 					carouselTrack.css('transform', `translateX(-${(currentIndex * 25)}%)`);
 
 					// Reset when we've scrolled through all slides
@@ -79,7 +79,7 @@ $(document).ready(function () {
 			}
 
 			// Start auto-scrolling
-			autoScrollInterval = setInterval(updateCarousel, 3000);
+			autoScrollInterval = setInterval(updateCarousel, 300);
 
 			// Pause auto-scrolling when user interacts
 			carouselTrack.on('mouseenter', function () {
@@ -90,13 +90,6 @@ $(document).ready(function () {
 			carouselTrack.on('mouseleave', function () {
 				isAutoScrolling = true;
 			});
-
-			// Stop auto-scrolling and reset if user clicks on a slide
-			slides.on('click', function () {
-				clearInterval(autoScrollInterval);
-				isAutoScrolling = false;
-			});
-
 		} catch (error) {
 			console.error('Error fetching GitHub repositories:', error);
 		}
