@@ -10,82 +10,106 @@ $(document).ready(function () {
 
 	ga('create', 'UA-78761399-1', 'auto');
 	ga('send', 'pageview');
-	// End Google Analytics
 
-	// console.log(ga.q);
+	// Modal Functionality
+	function openContactModal() {
+		$('#contact-modal').show();
+	}
 
-	$("div.wrapper div#main section#index").show();
-	$("div.wrapper div#main section#acads").hide();
-	$("div.wrapper div#main section#projects").hide();
-	$("div.wrapper div#main section#extra").hide();
-	$("div.wrapper div#main section#blog_content").hide();
+	function closeContactModal() {
+		$('#contact-modal').hide();
+	}
 
-	$("div.wrapper div#menu a.index").click(function () {
-		$("div.wrapper div#main section#picture").show();
-		$("div.wrapper div#main section#index").show();
-		$("div.wrapper div#main section#acads").hide();
-		$("div.wrapper div#main section#projects").hide();
-		$("div.wrapper div#main section#extra").hide();
-		$("div.wrapper div#main section#blog_content").hide();
+	// Attach modal functions to global scope
+	window.openContactModal = openContactModal;
+	window.closeContactModal = closeContactModal;
 
-		ga('create', 'UA-78761399-1', 'auto');
-		ga('send', 'pageview');
-	});
-	$("div.wrapper div#menu a.acads").click(function () {
-		$("div.wrapper div#main section#picture").show();
-		$("div.wrapper div#main section#index").hide();
-		$("div.wrapper div#main section#acads").show();
-		$("div.wrapper div#main section#projects").hide();
-		$("div.wrapper div#main section#extra").hide();
-		$("div.wrapper div#main section#blog_content").hide();
+	// GitHub Repositories Carousel
+	async function fetchGitHubRepos() {
+		try {
+			const response = await fetch('https://api.github.com/users/avikalpg/repos?sort=updated&direction=desc');
+			const repos = await response.json();
+			const filteredRepos = repos
+				.filter(repo => !repo.fork)
+			// .sort((a, b) => b.stargazers_count - a.stargazers_count)
 
-		ga('create', 'UA-78761399-1', 'auto', 'acadsTracker');
-		ga('acadsTracker.send', 'pageview');
-	});
-	$("div.wrapper div#menu a.projects").click(function () {
-		$("div.wrapper div#main section#picture").show();
-		$("div.wrapper div#main section#index").hide();
-		$("div.wrapper div#main section#acads").hide();
-		$("div.wrapper div#main section#projects").show();
-		$("div.wrapper div#main section#extra").hide();
-		$("div.wrapper div#main section#blog_content").hide();
+			const carouselTrack = $('.carousel-track');
+			carouselTrack.empty(); // Clear existing slides
 
-		ga('create', 'UA-78761399-1', 'auto', 'projectsTracker');
-		ga('projectsTracker.send', 'pageview');
-	});
-	$("div.wrapper div#menu a.extra").click(function () {
-		$("div.wrapper div#main section#picture").show();
-		$("div.wrapper div#main section#index").hide();
-		$("div.wrapper div#main section#acads").hide();
-		$("div.wrapper div#main section#projects").hide();
-		$("div.wrapper div#main section#extra").show();
-		$("div.wrapper div#main section#blog_content").hide();
+			filteredRepos.forEach(repo => {
+				const repoCard = `
+					<a href="${repo.html_url}" target="_blank" class="carousel-slide">
+						<img src="https://github-readme-stats.vercel.app/api/pin/?username=${repo.owner.login}&repo=${repo.name}"
+								alt="${repo.name}">
+					</a>
+				`;
+				carouselTrack.append(repoCard);
+			});
 
-		ga('create', 'UA-78761399-1', 'auto', 'extraTracker');
-		ga('extraTracker.send', 'pageview');
-	});
-	$("div.wrapper div#menu a.blog").click(function () {
-		$("div.wrapper div#main section#picture").hide();
-		$("div.wrapper div#main section#index").hide();
-		$("div.wrapper div#main section#acads").hide();
-		$("div.wrapper div#main section#projects").hide();
-		$("div.wrapper div#main section#extra").hide();
-		$("div.wrapper div#main section#blog_content").show();
-		$("div.wrapper div#main section#blog_content iframe").attr("src", function (i, val) { return val; });
+			// Reinitialize carousel functionality
+			const slides = $('.carousel-slide');
+			let currentIndex = 0;
+			let isAutoScrolling = true;
+			let autoScrollInterval;
 
-		ga('create', 'UA-78761399-1', 'auto', 'blogTracker');
-		ga('blogTracker.send', 'pageview');
-	});
+			// Clone slides for infinite scroll
+			slides.each(function () {
+				const clone = $(this).clone();
+				carouselTrack.append(clone);
+			});
 
-	// Add modal functionality
-	document.addEventListener('DOMContentLoaded', function () {
-		// Add modal close functionality when clicking outside the modal
-		window.addEventListener('click', function (event) {
-			const modal = document.getElementById('contact-modal');
-			if (event.target === modal) {
-				modal.style.display = 'none';
+			function updateCarousel() {
+				if (isAutoScrolling) {
+					currentIndex++;
+					carouselTrack.css('transform', `translateX(-${(currentIndex * 25)}%)`);
+
+					// Reset when we've scrolled through all slides
+					if (currentIndex >= slides.length) {
+						currentIndex = 0;
+						carouselTrack.css('transition', 'none');
+						carouselTrack.css('transform', 'translateX(0)');
+
+						// Trigger reflow
+						carouselTrack[0].offsetHeight;
+
+						// Restore transition
+						carouselTrack.css('transition', 'transform 0.5s linear');
+					}
+				}
 			}
-		});
-	});
 
+			// Start auto-scrolling
+			autoScrollInterval = setInterval(updateCarousel, 3000);
+
+			// Pause auto-scrolling when user interacts
+			carouselTrack.on('mouseenter', function () {
+				isAutoScrolling = false;
+			});
+
+			// Resume auto-scrolling when mouse leaves
+			carouselTrack.on('mouseleave', function () {
+				isAutoScrolling = true;
+			});
+
+			// Stop auto-scrolling and reset if user clicks on a slide
+			slides.on('click', function () {
+				clearInterval(autoScrollInterval);
+				isAutoScrolling = false;
+			});
+
+		} catch (error) {
+			console.error('Error fetching GitHub repositories:', error);
+		}
+	}
+
+	// Fetch repositories on page load
+	fetchGitHubRepos();
+
+	// Modal close when clicking outside
+	$(window).on('click', function (event) {
+		const modal = $('#contact-modal');
+		if (event.target === modal[0]) {
+			modal.hide();
+		}
+	});
 });
