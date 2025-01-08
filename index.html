@@ -108,25 +108,29 @@
 	<section class="cta-section">
 		<h2>Interested in Collaborating?</h2>
 		<p>I'm always open to discussing innovative projects and opportunities.</p>
-		<button class="say-hello-btn" onclick="openContactModal()">Start a Conversation</button>
+		<button class="say-hello-btn" onclick="openContactModal()">
+			<i class="far fa-comments" style="margin-right: 5px;"></i>Start a Conversation
+		</button>
 	</section>
 
 	<div id="contact-modal" class="contact-modal">
 		<div class="contact-form-container">
+			<span class="close-icon" onclick="closeContactModal()">&times;</span>
 			<h2>Get in Touch</h2>
-			<!-- Your existing contact form -->
-			<form action="mailto:avikalpgupta@gmail.com" method="post" enctype="text/plain">
+			<form class="contact-form" action="mailto:avikalpgupta@gmail.com" method="post" enctype="text/plain">
 				<input type="text" name="name" placeholder="Your Name" required>
 				<input type="email" name="email" placeholder="Your Email" required>
-				<textarea name="message" placeholder="Your Message" required></textarea>
+				<textarea name="message" placeholder="Your Message" rows="5" required></textarea>
 				<button type="submit">Send Message</button>
-				<button type="button" onclick="closeContactModal()">Close</button>
 			</form>
 		</div>
 	</div>
 
 	<footer class="footer">
-		<div class="footer-logo">Avikalp Gupta</div>
+		<div class="footer-logo">
+			<img src="images/favicon.ico" alt="Avikalp Gupta Logo"><br />
+			Avikalp Gupta
+		</div>
 		<p>Innovating at the intersection of technology and social impact</p>
 		<div class="footer-social">
 			<a href="https://twitter.com/AvikalpGupta"><i class="fab fa-twitter"></i></a>
