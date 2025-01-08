@@ -1,0 +1,108 @@
+<html>
+
+<head>
+	<title>Blog</title>
+	<link rel="shortcut icon" href="../images/favicon.ico">
+	<link rel="stylesheet" href="blog_layout.css" />
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="blog.js"></script>
+</head>
+
+<body>
+	<nav>
+		<a class="logo" href="/">
+			<img src="../images/favicon.ico" alt="Avikalp Gupta Logo">
+			Avikalp Gupta
+		</a>
+		<div class="hamburger-menu" onclick="toggleMenu()">
+			<i class="fas fa-bars"></i>
+		</div>
+		<div class="nav-menu">
+			<a href="/blog" class="blog-btn">Blog</a>
+			<button class="say-hello-btn" onclick="openContactModal()">Say Hello</button>
+		</div>
+	</nav>
+
+	<main class="container">
+		<div id="menu">
+			<ul>
+				<a class="tech">
+					<li>Technology</li>
+				</a>
+				<a class="art">
+					<li>Music and Art</li>
+				</a>
+				<a class="fit">
+					<li>Fitness</li>
+				</a>
+				<a class="entrepreneurship">
+					<li>Entrepreneurship</li>
+				</a>
+				<a class="sdg">
+					<li>Sustainability</li>
+				</a>
+				<a class="all">
+					<li>All articles</li>
+				</a>
+			</ul>
+		</div>
+		<div id="content">
+			<a class="article">
+				<h2>Title</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed
+					cursus
+					ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
+					Praesent
+					mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
+					Class
+					aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur
+					sodales
+					ligula in libero. Sed dignissim lacinia nunc. </p>
+			</a>
+			<a class="article">
+				<h2>Title</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed
+					cursus
+					ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum.
+					Praesent
+					mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
+					Class
+					aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur
+					sodales
+					ligula in libero. Sed dignissim lacinia nunc. </p>
+			</a>
+		</div>
+	</main>
+
+	<div id="contact-modal" class="contact-modal">
+		<div class="contact-form-container">
+			<span class="close-icon" onclick="closeContactModal()">&times;</span>
+			<h2>Get in Touch</h2>
+			<form class="contact-form" action="mailto:avikalpgupta@gmail.com" method="post" enctype="text/plain">
+				<input type="text" name="name" placeholder="Your Name" required>
+				<input type="email" name="email" placeholder="Your Email" required>
+				<textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+				<button type="submit">Send Message</button>
+			</form>
+		</div>
+	</div>
+
+	<footer class="footer">
+		<div class="footer-logo">
+			<img src="../images/favicon.ico" alt="Avikalp Gupta Logo"><br />
+			Avikalp Gupta
+		</div>
+		<p>Innovating at the intersection of technology and social impact</p>
+		<div class="footer-social">
+			<a href="https://twitter.com/AvikalpGupta"><i class="fab fa-twitter"></i></a>
+			<a href="https://github.com/avikalpg"><i class="fab fa-github"></i></a>
+			<a href="https://www.linkedin.com/in/avikalp-gupta"><i class="fab fa-linkedin"></i></a>
+			<a href="https://avikalpgupta.medium.com/"><i class="fab fa-medium"></i></a>
+			<a href="https://defcon.social/@avikalp"><i class="fab fa-mastodon"></i></a>
+		</div>
+		<a href="/archive" class="archive"><i class="fas fa-archive"></i>archive</a>
+	</footer>
+</body>
+
+</html>

@@ -24,6 +24,14 @@ $(document).ready(function () {
 	window.openContactModal = openContactModal;
 	window.closeContactModal = closeContactModal;
 
+	// Modal close when clicking outside
+	$(window).on('click', function (event) {
+		const modal = $('#contact-modal');
+		if (event.target === modal[0]) {
+			modal.hide();
+		}
+	});
+
 	// GitHub Repositories Carousel
 	async function fetchGitHubRepos() {
 		try {
@@ -97,14 +105,6 @@ $(document).ready(function () {
 
 	// Fetch repositories on page load
 	fetchGitHubRepos();
-
-	// Modal close when clicking outside
-	$(window).on('click', function (event) {
-		const modal = $('#contact-modal');
-		if (event.target === modal[0]) {
-			modal.hide();
-		}
-	});
 
 	function toggleMenu() {
 		const navMenu = document.querySelector('.nav-menu');
