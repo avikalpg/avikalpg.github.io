@@ -1,112 +1,112 @@
-/*@font-face {
-	font-family: nameHeader;
-	src: url();
-}*/
+* {
+	box-sizing: border-box;
+	font-family: 'Ubuntu', sans-serif;
+}
 
 #header {
-	clear:both;
-	height:100px;
-	width:100%;
-	position:fixed;
-	top:0;
-	background:#346;
-	color: #fff;
+	position: sticky;
+	top: 0;
+	background: linear-gradient(to right, #2b5876, #4e4376);
+	padding: 1rem;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: xx-large;
+	color: white;
 }
 
 body {
-	background:ddddff;
-	font-family: 'Ubuntu';
-	/*font-family: 'Helvetica';*/
+	background: ddddff;
 	font-weight: lighter;
 }
 
 .socialLinks {
-	height:40;
-	/*background:white;*/
-	border-radius:12px;
-	margin:5px;
-	padding:12px;
-	float:right;
+	display: flex;
+	gap: 1rem;
+	align-items: center;
 }
 
-#facebook, #medium, #twitter, #resumee, #linkedIn, #github, #mastodon {
-	width:40px;
-	height:40px;
-	float:left;
-	border-radius:25px;
-	/*background:white;*/
-	text-align:center;
-	vertical-align:middle;
-	margin:5px;
+.socialLinks a {
+	transition: transform 0.2s ease;
 }
 
-.wrapper{
+.socialLinks a:hover {
+	transform: translateY(-2px);
+}
+
+.wrapper {
 	/* for making the footer stick to the bottom */
-	min-height:100%;
+	min-height: 100%;
 	height: auto !important;
 	/*height: 100%;*/
-	margin-top:100px;
+	margin-top: 100px;
 	margin: 0 auto -5em;
 	/* general css starts here */
 
-	width:1000px;
+	width: 1000px;
 }
 
 #main {
-	float:left;
-	width:100%;
-	background:white;
-	border-radius:12px;
-	padding:0px 10px 10px 10px;
+	float: left;
+	width: 100%;
+	background: white;
+	border-radius: 12px;
+	padding: 0px 10px 10px 10px;
 }
+
 #menu {
-	background:#ddf;
+	background: #ddf;
 }
-#menu ul{
-	overflow-x:hidden;
-	overflow-y:hidden;
+
+#menu ul {
+	overflow-x: hidden;
+	overflow-y: hidden;
 	list-style-type: none;
 }
-#menu ul li{
-	float:left;
-	padding:5px;
-	margin:0px 30px 0px 0px;
-	color:#335;
-	/*font-family: Raleway, Georgia, serif;*/
-	font-size:18px;
-	line-height:1.6;
+
+#menu ul li {
+	float: left;
+	padding: 5px;
+	margin: 0px 30px 0px 0px;
+	color: #335;
+	font-size: 18px;
+	line-height: 1.6;
 }
-#menu ul li:hover{
-	background-color:#cce;
+
+#menu ul li:hover {
+	background-color: #cce;
 }
 
 div.wrapper div#main div#content {
-	float:left;
-	margin:0px 0px 0px 12px;
-	width:620px;
+	float: left;
+	margin: 0px 0px 0px 12px;
+	width: 620px;
 }
 
 div.wrapper div#main div#content div div {
-	border-radius:12px;
-    margin-bottom:10px;
-	background:#ddf;
-	padding:5px 15px 15px 15px;
-    width:100%;
+	border-radius: 12px;
+	margin-bottom: 10px;
+	background: #ddf;
+	padding: 5px 15px 15px 15px;
+	width: 100%;
 }
 
 div.wrapper div#main div#picture {
-	float:left;
-	border-radius:12px;
-	background:#ddf;
-	padding:15px;
-	width:300px;
+	float: left;
+	border-radius: 12px;
+	background: #ddf;
+	padding: 15px;
+	width: 300px;
 }
 
-.footer, .push{
-	clear:both;
+.footer,
+.push {
+	clear: both;
 	height: 5em;
 }
+
 #footer {
-	background:#346;
-	padding:5px;
+	background: #346;
+	padding: 5px;
 }

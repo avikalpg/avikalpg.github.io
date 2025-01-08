@@ -1,4 +1,5 @@
 <html>
+
 <head>
 	<title>Dance Stuff</title>
 	<script src="jquery-3.3.1.min.js"></script>
@@ -6,35 +7,35 @@
 		@import "compass/css3";
 
 		body {
-		  font-family: 'Ubuntu';
+			font-family: 'Ubuntu', sans-serif;
 		}
 
 		ul {
-		  list-style-type: none;
-		  margin: 0;
-		  padding: 0;
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
 		}
 
 		li {
-		  /*font: 200 20px/1.5 Helvetica, Verdana, sans-serif;*/
-		  border-bottom: 1px solid #ccc;
+			/*font: 200 20px/1.5 Helvetica, Verdana, sans-serif;*/
+			border-bottom: 1px solid #ccc;
 		}
 
 		li:last-child {
-		  border: none;
+			border: none;
 		}
 
 		li p {
-		  text-decoration: none;
-		  color: #000;
+			text-decoration: none;
+			color: #000;
 
-		  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
-		  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
-		  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
-		  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
-		  transition: font-size 0.3s ease, background-color 0.3s ease;
-		  display: block;
-		  /*width: 200px;*/
+			-webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+			-moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+			-o-transition: font-size 0.3s ease, background-color 0.3s ease;
+			-ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+			transition: font-size 0.3s ease, background-color 0.3s ease;
+			display: block;
+			/*width: 200px;*/
 		}
 
 		li p#body {
@@ -107,73 +108,108 @@
 			}
 		}
 
-		$(document).ready(function(){
+		$(document).ready(function () {
 			var list_items = document.querySelectorAll("li");
 			for (var i = 0; i < list_items.length; i++) {
 				expandFlags[i] = 0;
-				list_items[i].addEventListener("click", function(){
+				list_items[i].addEventListener("click", function () {
 					toggle(this, i)
 				}, false);
 			}
 		});
 	</script>
 </head>
+
 <body style="width:90%">
 	<ul style="list-style-type:None; margin:0; padding:0">
 
 		<li>
-			<p id="heading">Romantic Dance at my own Engagement ceremony <i><font size=2>(Dec'20)</font></i></p>
+			<p id="heading">Romantic Dance at my own Engagement ceremony <i>
+					<font size=2>(Dec'20)</font>
+				</i></p>
 			<p id="body">
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/TNv3g-B9KFo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-				This video of my wife and me dancing on our engagement ceremony was choreographed by me and prepared entirely remoted without any video assistance.
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/TNv3g-B9KFo"
+					title="YouTube video player" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen></iframe>
+				This video of my wife and me dancing on our engagement ceremony was choreographed by me and prepared
+				entirely remoted without any video assistance.
 				We decided that we will perform a dance on the last week, throughout which, I was travelling.
-				It took us a few days to decide the songs. I imagined the steps in my head and communicated them to my wife over the phone, while I was still in the train.
-				When I reached the venue, we had 1 hour to prepare the dance (a lot of which, we spent not practising because it was the first time we were seeing each other 
+				It took us a few days to decide the songs. I imagined the steps in my head and communicated them to my
+				wife over the phone, while I was still in the train.
+				When I reached the venue, we had 1 hour to prepare the dance (a lot of which, we spent not practising
+				because it was the first time we were seeing each other
 				after a long time).
-				<br/>
-				I am humbled that this video has received so much love, with more than 500k views and 4000+ likes. We are still waiting for more videos shot during our wedding ceremony, to upload for our 1000+ subscribers.
+				<br />
+				I am humbled that this video has received so much love, with more than 500k views and 4000+ likes. We
+				are still waiting for more videos shot during our wedding ceremony, to upload for our 1000+ subscribers.
 			</p>
 		</li>
 		<li>
-			<p id="heading">Bollywood-style Dance at Mood Indigo'12 <i><font size=2>(Dec'12)</font></i></p>
+			<p id="heading">Bollywood-style Dance at Mood Indigo'12 <i>
+					<font size=2>(Dec'12)</font>
+				</i></p>
 			<p id="body">
-				<iframe width="560" height="315" src="https://www.youtube.com/watch?v=qtIo2LJrDM4" frameborder="0" allowfullscreen></iframe><br>
-				This was the first time that freshers were representing the dance club of IIT Kanpur outside campus. And not did we just represent the university, we also reached the finals
-				in one of the most competitive dance contest at collegiate level in all of Asia. Mood Indigo is considered to be the largest collegiate cultural festival in Asia in terms of 
-				participation. To add to that, dance competitions are one of the most sought after events in the fest. The finale is conducted right before the ending night's concert and the 
-				convocation hall with a capacity to seat more than 2000 people overflows with audience.  
+				<iframe width="560" height="315" src="https://www.youtube.com/watch?v=qtIo2LJrDM4" frameborder="0"
+					allowfullscreen></iframe><br>
+				This was the first time that freshers were representing the dance club of IIT Kanpur outside campus. And
+				not did we just represent the university, we also reached the finals
+				in one of the most competitive dance contest at collegiate level in all of Asia. Mood Indigo is
+				considered to be the largest collegiate cultural festival in Asia in terms of
+				participation. To add to that, dance competitions are one of the most sought after events in the fest.
+				The finale is conducted right before the ending night's concert and the
+				convocation hall with a capacity to seat more than 2000 people overflows with audience.
 			</p>
 		</li>
 		<li>
-			<p id="heading">Performed Dance and Music at Deepkshikha'12 <i><font size=2>(Nov'12)</font></i></p>
+			<p id="heading">Performed Dance and Music at Deepkshikha'12 <i>
+					<font size=2>(Nov'12)</font>
+				</i></p>
 			<p id="body">
-				<iframe width="560" height="315" src="https://www.youtube.com/watch?v=pUkgvmLzTgk" frameborder="0" allowfullscreen></iframe><br>
-				This is the hall day of Hall-2 at IIT Kanpur. A video of the music performance is not available with me, but I played the musical keyboard to give the background music for "Dilbar mere" and "Aaja Sanam Madhur Chandni mein hum"
+				<iframe width="560" height="315" src="https://www.youtube.com/watch?v=pUkgvmLzTgk" frameborder="0"
+					allowfullscreen></iframe><br>
+				This is the hall day of Hall-2 at IIT Kanpur. A video of the music performance is not available with me,
+				but I played the musical keyboard to give the background music for "Dilbar mere" and "Aaja Sanam Madhur
+				Chandni mein hum"
 			</p>
 		</li>
 
 		<li>
-			<p id="heading">Street Dance at Antaragni'12 <i><font size=2>(Aug'12)</font></i></p>
+			<p id="heading">Street Dance at Antaragni'12 <i>
+					<font size=2>(Aug'12)</font>
+				</i></p>
 			<p id="body">
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/kIkd6qmYXyk" frameborder="0" allowfullscreen></iframe><br>
-				Represented the B-team (i.e. a team of freshmen made only to expose them to the competition) of IIT Kanpur in the dance competition of one of the largest collegiate cultural fests in Asia, organised yearly at IIT Kanpur.
-				We won the 3<sup>rd</sup> place while the A-team won the first place.  It was the first time that a fresher's team had claimed one of the top 3 spots at one of Antaragni's dance competitions.
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/kIkd6qmYXyk" frameborder="0"
+					allowfullscreen></iframe><br>
+				Represented the B-team (i.e. a team of freshmen made only to expose them to the competition) of IIT
+				Kanpur in the dance competition of one of the largest collegiate cultural fests in Asia, organised
+				yearly at IIT Kanpur.
+				We won the 3<sup>rd</sup> place while the A-team won the first place. It was the first time that a
+				fresher's team had claimed one of the top 3 spots at one of Antaragni's dance competitions.
 			</p>
 		</li>
 		<li>
-			<p id="heading">Fresher's dance <i><font size=2>(Aug'12)</font></i></p>
+			<p id="heading">Fresher's dance <i>
+					<font size=2>(Aug'12)</font>
+				</i></p>
 			<p id="body">
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/KshVxXsQoRU" frameborder="0" allowfullscreen></iframe><br>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/KshVxXsQoRU" frameborder="0"
+					allowfullscreen></iframe><br>
 				<!--<object data="https://www.youtube.com/embed/W7qWa52k-nE" width="560" height="315"></object>-->
 			</p>
 		</li>
 		<li>
-			<p id="heading">Featured in Fresher's carnival video <i><font size=2>(Aug'12)</font></i></p>
+			<p id="heading">Featured in Fresher's carnival video <i>
+					<font size=2>(Aug'12)</font>
+				</i></p>
 			<p id="body">
-				<iframe width="560" height="315" src="https://www.youtube.com/watch?v=Fb0IOQ8Enrw" frameborder="0" allowfullscreen></iframe><br>
-				I am featured in the clips from the <a href="http://www.iitk.ac.in/counsel/">couselling service</a>'s 10 day session at 0:40, 0:45 and 1:35
+				<iframe width="560" height="315" src="https://www.youtube.com/watch?v=Fb0IOQ8Enrw" frameborder="0"
+					allowfullscreen></iframe><br>
+				I am featured in the clips from the <a href="http://www.iitk.ac.in/counsel/">couselling service</a>'s 10
+				day session at 0:40, 0:45 and 1:35
 			</p>
 		</li>
 	</ul>
 </body>
+
 </html>
