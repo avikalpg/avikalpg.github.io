@@ -105,4 +105,29 @@ $(document).ready(function () {
 			modal.hide();
 		}
 	});
+
+	function toggleMenu() {
+		const navMenu = document.querySelector('.nav-menu');
+		const hamburger = document.querySelector('.hamburger-menu');
+
+		navMenu.classList.toggle('active');
+
+		// Optional: Animate hamburger to close icon
+		hamburger.classList.toggle('open');
+	}
+
+	// Close menu when clicking outside
+	document.addEventListener('click', function (event) {
+		const navMenu = document.querySelector('.nav-menu');
+		const hamburger = document.querySelector('.hamburger-menu');
+
+		if (!navMenu.contains(event.target) &&
+			!hamburger.contains(event.target) &&
+			navMenu.classList.contains('active')) {
+			navMenu.classList.remove('active');
+			hamburger.classList.remove('open');
+		}
+	});
+
+	window.toggleMenu = toggleMenu;
 });
