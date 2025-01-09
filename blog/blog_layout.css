@@ -133,6 +133,11 @@ main.container {
 
 #menu ul li:hover {
 	background-color: var(--light-accent);
+	transform: translateX(10px);
+}
+
+#menu ul li.active {
+	background-color: var(--light-accent);
 	color: var(--accent-color);
 	transform: translateX(10px);
 }

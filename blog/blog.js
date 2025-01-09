@@ -48,6 +48,7 @@ $(document).ready(function () {
 
 	// Initial load of all articles
 	loadBlogContent('all');
+	$("#menu li[data-category='all']").addClass('active');
 
 	// Modal Functionality
 	function openContactModal() {
