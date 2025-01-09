@@ -1,14 +1,10 @@
 $(document).ready(function () {
 	// Start Google Analytics
-	(function (i, s, o, g, r, a, m) {
-		i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-			(i[r].q = i[r].q || []).push(arguments)
-		}, i[r].l = 1 * new Date(); a = s.createElement(o),
-			m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-	})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+	window.dataLayer = window.dataLayer || [];
+	function gtag() { dataLayer.push(arguments); }
+	gtag('js', new Date());
 
-	ga('create', 'UA-78761399-1', 'auto');
-	ga('send', 'pageview');
+	gtag('config', 'G-QPXD79N14E');
 	// End Google Analytics
 
 	var base_folder = window.location.href.substr(0, window.location.href.lastIndexOf("\/"));
@@ -36,8 +32,10 @@ $(document).ready(function () {
 			});
 
 			// Track page view for specific category
-			ga('create', 'UA-78761399-1', 'auto', category + 'Blog');
-			ga('send', 'pageview');
+			gtag('event', 'blog_list_view', {
+				'page_title': category + ' Blog',
+				'page_path': '/blog/' + category
+			});
 		}).fail(function () {
 			console.error("Failed to load blog content for category: " + category);
 		});
@@ -59,6 +57,12 @@ $(document).ready(function () {
 			articleContainer.append(articleHtml);
 
 			$("section#content").html(articleContainer);
+
+			// Send page view event to Google Analytics
+			gtag('event', 'blog_article_view', {
+				'page_title': articleContainer.find('h2').first().text() || 'Article',
+				'page_path': articleUrl
+			});
 		}).fail(function () {
 			console.error("Failed to load article: " + articleUrl);
 		});
