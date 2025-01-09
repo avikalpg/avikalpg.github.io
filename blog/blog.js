@@ -1,6 +1,4 @@
 $(document).ready(function () {
-	var blogsFolder = './blog/';
-
 	// Start Google Analytics
 	(function (i, s, o, g, r, a, m) {
 		i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
@@ -14,71 +12,50 @@ $(document).ready(function () {
 	// End Google Analytics
 
 	var base_folder = window.location.href.substr(0, window.location.href.lastIndexOf("\/"));
-	$.get(base_folder + "/list_pages/all.html", function (htmlContent) {
-		$("div#content").html(htmlContent);
-	});
 
-	$("div#menu a.tech").click(function () {
-		$.get(base_folder + "/list_pages/tec.html", function (htmlContent) {
-			$("div#content").html(htmlContent);
+	// Centralized content loading function
+	function loadBlogContent(category) {
+		let categoryMap = {
+			'tech': 'tec',
+			'art': 'art',
+			'fit': 'fit',
+			'entrepreneurship': 'ent',
+			'sdg': 'sdg',
+			'all': 'all'
+		};
+
+		let fileName = categoryMap[category] + '.html';
+		$.get(base_folder + "/list_pages/" + fileName, function (htmlContent) {
+			$("section#content").html(htmlContent);
+
+			// Track page view for specific category
+			ga('create', 'UA-78761399-1', 'auto', category + 'Blog');
+			ga('send', 'pageview');
+		}).fail(function () {
+			console.error("Failed to load blog content for category: " + category);
 		});
+	}
 
-		ga('create', 'UA-78761399-1', 'auto', 'techBlog');
-		ga('send', 'pageview');
+	// Event delegation for menu items
+	$("#menu").on('click', 'li', function () {
+		let category = $(this).data('category');
+		loadBlogContent(category);
+
+		// Add active state to clicked menu item
+		$("#menu li").removeClass('active');
+		$(this).addClass('active');
 	});
 
-	$("div#menu a.art").click(function () {
-		$.get(base_folder + "/list_pages/art.html", function (htmlContent) {
-			$("div#content").html(htmlContent);
-		});
-
-		ga('create', 'UA-78761399-1', 'auto', 'artBlog');
-		ga('send', 'pageview');
-	});
-
-	$("div#menu a.fit").click(function () {
-		$.get(base_folder + "/list_pages/fit.html", function (htmlContent) {
-			$("div#content").html(htmlContent);
-		});
-
-		ga('create', 'UA-78761399-1', 'auto', 'fitBlog');
-		ga('send', 'pageview');
-	});
-
-	$("div#menu a.entrepreneurship").click(function () {
-		$.get(base_folder + "/list_pages/ent.html", function (htmlContent) {
-			$("div#content").html(htmlContent);
-		});
-
-		ga('create', 'UA-78761399-1', 'auto', 'entrepreneurBlog');
-		ga('send', 'pageview');
-	});
-
-	$("div#menu a.sdg").click(function () {
-		$.get(base_folder + "/list_pages/sdg.html", function (htmlContent) {
-			$("div#content").html(htmlContent);
-		});
-
-		ga('create', 'UA-78761399-1', 'auto', 'sdgBlog');
-		ga('send', 'pageview');
-	});
-
-	$("div#menu a.all").click(function () {
-		$.get(base_folder + "/list_pages/all.html", function (htmlContent) {
-			$("div#content").html(htmlContent);
-		});
-
-		ga('create', 'UA-78761399-1', 'auto');
-		ga('send', 'pageview');
-	});
+	// Initial load of all articles
+	loadBlogContent('all');
 
 	// Modal Functionality
 	function openContactModal() {
-		$('#contact-modal').show();
+		$('#contact-modal').fadeIn(300);
 	}
 
 	function closeContactModal() {
-		$('#contact-modal').hide();
+		$('#contact-modal').fadeOut(300);
 	}
 
 	// Attach modal functions to global scope
@@ -90,9 +67,6 @@ $(document).ready(function () {
 		const hamburger = document.querySelector('.hamburger-menu');
 
 		navMenu.classList.toggle('active');
-
-		// Optional: Animate hamburger to close icon
-		hamburger.classList.toggle('open');
 	}
 
 	// Close menu when clicking outside
@@ -109,5 +83,4 @@ $(document).ready(function () {
 	});
 
 	window.toggleMenu = toggleMenu;
-
 });

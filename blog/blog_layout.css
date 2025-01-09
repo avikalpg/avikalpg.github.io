@@ -3,6 +3,7 @@
 	--secondary-background: #f4f5f7;
 	--text-color: #333;
 	--accent-color: #5a67d8;
+	--light-accent: #e6e9f0;
 }
 
 * {
@@ -15,6 +16,9 @@
 body {
 	min-height: 100vh;
 	position: relative;
+	background-color: var(--secondary-background);
+	line-height: 1.6;
+	color: var(--text-color);
 }
 
 nav {
@@ -92,54 +96,80 @@ nav .logo img {
 	color: var(--text-color);
 }
 
-main {
-	font-weight: lighter;
+main.container {
+	max-width: 1200px;
+	margin: 100px auto 50px;
+	display: flex;
+	gap: 2rem;
+	padding: 0 1rem;
 }
 
 #menu {
-	float: left;
+	flex: 0 0 250px;
+	background-color: white;
 	border-radius: 12px;
-	background: #ddf;
-	padding: 5px;
-	width: 200px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+	padding: 20px;
+	height: fit-content;
+	position: sticky;
+	top: 100px;
+	transition: all 0.3s ease;
 }
 
 #menu ul {
-	overflow-x: hidden;
-	overflow-y: hidden;
 	list-style-type: none;
-	padding-inline-start: 15px;
-	padding-inline-end: 15px;
+	padding: 0;
 }
 
 #menu ul li {
-	padding: 5px;
-	margin: 10px 0px 10px 0px;
-	color: #335;
-	font-size: 18px;
-	line-height: 1.6;
+	padding: 12px 15px;
+	margin: 10px 0;
+	color: var(--text-color);
+	font-size: 16px;
+	border-radius: 8px;
+	transition: all 0.3s ease;
+	cursor: pointer;
 }
 
 #menu ul li:hover {
-	background-color: #cce;
-	cursor: pointer;
+	background-color: var(--light-accent);
+	color: var(--accent-color);
+	transform: translateX(10px);
 }
 
 #content {
 	float: left;
 	margin: 0px 0px 0px 12px;
 	width: 620px;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
 }
 
-#content a {
+#content .article {
+	background-color: white;
 	border-radius: 12px;
-	margin-bottom: 10px;
-	background: #ddf;
-	padding: 5px 15px 15px 15px;
-	width: 100%;
-	display: block;
-	text-decoration: none !important;
-	color: inherit !important;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+	padding: 25px;
+	text-decoration: none;
+	color: inherit;
+	transition: all 0.3s ease;
+}
+
+#content .article:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+#content .article h2 {
+	margin-bottom: 15px;
+	color: var(--accent-color);
+	font-weight: 600;
+}
+
+#content .article p {
+	color: inherit;
 }
 
 .contact-modal {
@@ -168,6 +198,7 @@ main {
 	margin-top: 20px;
 	display: flex;
 	flex-direction: column;
+	gap: 1.5rem;
 }
 
 .contact-form input,
@@ -231,6 +262,35 @@ main {
 	color: white;
 	text-decoration: none;
 	font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+	main.container {
+		flex-direction: column;
+		margin-top: 80px;
+	}
+
+	#menu {
+		width: 100%;
+		position: static;
+		margin-bottom: 20px;
+	}
+
+	#menu ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	#menu ul li {
+		flex: 1 1 calc(33% - 10px);
+		text-align: center;
+	}
+
+	#content {
+		max-width: 100%;
+		margin: 0;
+	}
 }
 
 @media (max-width: 480px) {

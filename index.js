@@ -111,9 +111,6 @@ $(document).ready(function () {
 		const hamburger = document.querySelector('.hamburger-menu');
 
 		navMenu.classList.toggle('active');
-
-		// Optional: Animate hamburger to close icon
-		hamburger.classList.toggle('open');
 	}
 
 	// Close menu when clicking outside
