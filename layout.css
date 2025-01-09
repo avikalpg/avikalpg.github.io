@@ -297,6 +297,11 @@ nav .logo img {
 	color: white;
 	text-decoration: none;
 	font-size: 1.5rem;
+	transition: transform 0.3s, color 0.3s;
+}
+
+.footer-social a:hover {
+	transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
