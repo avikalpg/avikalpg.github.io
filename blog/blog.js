@@ -22,6 +22,9 @@ $(document).ready(function () {
 
 		let fileName = categoryMap[category] + '.html';
 		$.get(base_folder + "/list_pages/" + fileName, function (htmlContent) {
+			// Restore the original page title when returning to blog list
+			document.title = window.originalPageTitle || 'Avikalp Gupta | Blog';
+
 			$("section#content").html(htmlContent);
 
 			// Add click event for individual articles
@@ -43,6 +46,9 @@ $(document).ready(function () {
 
 	// Function to load individual article content
 	function loadArticleContent(articleUrl, category) {
+		// Store the original page title globally if not already stored
+		window.originalPageTitle = window.originalPageTitle || document.title;
+
 		$.get(articleUrl, function (articleHtml) {
 			// Create a container for the article with a back button
 			let articleContainer = $('<div class="article-full-view"></div>');
@@ -54,6 +60,16 @@ $(document).ready(function () {
 
 			// Create a temporary div to manipulate HTML
 			let tempDiv = $('<div>').html(articleHtml);
+
+			// Try to extract the meta name tag for the title
+			let metaNameTitle = tempDiv.find('meta[name="title"]').attr('content') ||
+				tempDiv.find('meta[property="og:title"]').attr('content') ||
+				tempDiv.find('h1').first().text() ||
+				tempDiv.find('h2').first().text() ||
+				'Article';
+
+			// Update page title
+			document.title = metaNameTitle + " | Avikalp Gupta's Blog";
 
 			// Function to rewrite local resource paths
 			function rewriteResourcePath(originalPath) {
@@ -101,7 +117,7 @@ $(document).ready(function () {
 
 			// Send page view event to Google Analytics
 			gtag('event', 'blog_article_view', {
-				'page_title': tempDiv.find('h2').first().text() || 'Article',
+				'page_title': metaNameTitle,
 				'page_path': articleUrl
 			});
 		}).fail(function () {
