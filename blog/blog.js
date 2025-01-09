@@ -52,15 +52,56 @@ $(document).ready(function () {
 				loadBlogContent(category);  // Default back to all articles
 			});
 
+			// Create a temporary div to manipulate HTML
+			let tempDiv = $('<div>').html(articleHtml);
+
+			// Function to rewrite local resource paths
+			function rewriteResourcePath(originalPath) {
+				// If it's an absolute path or external URL, return as is
+				if (originalPath.startsWith('http') || originalPath.startsWith('//') || originalPath.startsWith('/')) {
+					return originalPath;
+				}
+
+				// Determine the base path of the article
+				let articleBasePath = articleUrl.substring(0, articleUrl.lastIndexOf('/') + 1);
+
+				// Construct the full path
+				return articleBasePath + originalPath;
+			}
+
+			// Rewrite image sources
+			tempDiv.find('img').each(function () {
+				let originalSrc = $(this).attr('src');
+				if (originalSrc) {
+					$(this).attr('src', rewriteResourcePath(originalSrc));
+				}
+			});
+
+			// Rewrite anchor href for local links
+			tempDiv.find('a').each(function () {
+				let originalHref = $(this).attr('href');
+				if (originalHref && !originalHref.startsWith('http') && !originalHref.startsWith('#')) {
+					$(this).attr('href', rewriteResourcePath(originalHref));
+				}
+			});
+
+			// Rewrite source for audio/video elements
+			tempDiv.find('source').each(function () {
+				let originalSrc = $(this).attr('src');
+				if (originalSrc) {
+					$(this).attr('src', rewriteResourcePath(originalSrc));
+				}
+			});
+
 			// Append back button and article content
 			articleContainer.append(backButton);
-			articleContainer.append(articleHtml);
+			articleContainer.append(tempDiv.html());
 
 			$("section#content").html(articleContainer);
 
 			// Send page view event to Google Analytics
 			gtag('event', 'blog_article_view', {
-				'page_title': articleContainer.find('h2').first().text() || 'Article',
+				'page_title': tempDiv.find('h2').first().text() || 'Article',
 				'page_path': articleUrl
 			});
 		}).fail(function () {
