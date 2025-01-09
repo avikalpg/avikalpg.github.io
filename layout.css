@@ -2,6 +2,7 @@
 	--primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 	--secondary-background: #f4f5f7;
 	--text-color: #333;
+	--subtext-color: #666;
 	--accent-color: #5a67d8;
 }
 
@@ -116,6 +117,65 @@ nav .logo img {
 	cursor: pointer;
 	font-size: 1.5rem;
 	color: var(--text-color);
+}
+
+.about-me {
+	padding: 6rem 2rem;
+	background-color: var(--secondary-background);
+}
+
+.about-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	gap: 4rem;
+}
+
+.about-image {
+	flex: 1;
+	text-align: center;
+}
+
+.profile-photo {
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	object-fit: cover;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-content {
+	flex: 2;
+}
+
+.about-content h2 {
+	font-size: 2.5rem;
+	margin-bottom: 1.5rem;
+	color: #2d3436;
+}
+
+.about-content p {
+	font-size: 1.1rem;
+	line-height: 1.8;
+	color: var(--subtext-color);
+}
+
+@media (max-width: 768px) {
+	.about-container {
+		flex-direction: column;
+		text-align: center;
+		gap: 2rem;
+	}
+
+	.about-content {
+		flex: 1;
+	}
+
+	.profile-photo {
+		width: 250px;
+		height: 250px;
+	}
 }
 
 .recent-work,
