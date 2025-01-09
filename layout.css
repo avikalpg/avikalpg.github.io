@@ -154,6 +154,7 @@ nav .logo img {
 	object-fit: cover;
 	box-shadow: 0 10px 0px rgba(0, 0, 0, 0.1);
 	position: relative;
+	background-color: #fff8
 }
 
 .rotating-logos {
@@ -168,40 +169,16 @@ nav .logo img {
 
 .logo-item {
 	position: absolute;
-	width: 60px;
-	height: 60px;
+	width: 100px;
+	height: 50px;
 	left: calc(50% - 30px);
-	top: calc(50% + 8% * calc(var(--i) - 3) - 30px);
+	top: calc(50% + 50% * var(--offset) - 30px);
 	/* top: calc(50% - 30px); */
-	filter: grayscale(100%);
+	filter: grayscale(50%);
 	transition: filter 0.3s ease;
 	transform-style: preserve-3d;
 	animation: orbit 30s linear infinite;
-	animation-delay: calc(var(--i) * -5s);
-}
-
-.logo-item:nth-child(1) {
-	--orbit-tilt: 180deg;
-}
-
-.logo-item:nth-child(2) {
-	--orbit-tilt: 250deg;
-}
-
-.logo-item:nth-child(3) {
-	--orbit-tilt: 45deg;
-}
-
-.logo-item:nth-child(4) {
-	--orbit-tilt: 35deg;
-}
-
-.logo-item:nth-child(5) {
-	--orbit-tilt: 25deg;
-}
-
-.logo-item:nth-child(6) {
-	--orbit-tilt: 15deg;
+	animation-delay: calc(var(--i) * -7s);
 }
 
 .logo-item img {
@@ -223,27 +200,27 @@ nav .logo img {
 @keyframes orbit {
 	0% {
 		transform:
-			rotateX(var(--orbit-tilt)) rotateY(0deg) translateX(140px) rotateY(0deg) rotateX(calc(var(--orbit-tilt) * -1));
+			rotateX(var(--orbit-tilt)) rotateY(0deg) translateX(var(--radius)) rotateY(0deg) rotateX(calc(var(--orbit-tilt) * -1));
 	}
 
 	25% {
 		transform:
-			rotateX(var(--orbit-tilt)) rotateY(90deg) translateX(140px) rotateY(-90deg) rotateX(calc(var(--orbit-tilt) * -1));
+			rotateX(var(--orbit-tilt)) rotateY(90deg) translateX(var(--radius)) rotateY(-90deg) rotateX(calc(var(--orbit-tilt) * -1));
 	}
 
 	50% {
 		transform:
-			rotateX(var(--orbit-tilt)) rotateY(180deg) translateX(140px) rotateY(-180deg) rotateX(calc(var(--orbit-tilt) * -1));
+			rotateX(var(--orbit-tilt)) rotateY(180deg) translateX(var(--radius)) rotateY(-180deg) rotateX(calc(var(--orbit-tilt) * -1));
 	}
 
 	75% {
 		transform:
-			rotateX(var(--orbit-tilt)) rotateY(270deg) translateX(140px) rotateY(-270deg) rotateX(calc(var(--orbit-tilt) * -1));
+			rotateX(var(--orbit-tilt)) rotateY(270deg) translateX(var(--radius)) rotateY(-270deg) rotateX(calc(var(--orbit-tilt) * -1));
 	}
 
 	100% {
 		transform:
-			rotateX(var(--orbit-tilt)) rotateY(360deg) translateX(140px) rotateY(-360deg) rotateX(calc(var(--orbit-tilt) * -1));
+			rotateX(var(--orbit-tilt)) rotateY(360deg) translateX(var(--radius)) rotateY(-360deg) rotateX(calc(var(--orbit-tilt) * -1));
 	}
 }
 
@@ -290,34 +267,34 @@ nav .logo img {
 	}
 
 	.logo-item {
-		width: 50px;
-		height: 50px;
+		width: 45px;
+		height: 90px;
 	}
 
 	@keyframes orbit {
 		0% {
 			transform:
-				rotateX(var(--orbit-tilt)) rotateY(0deg) translateX(140px) rotateY(0deg) rotateX(calc(var(--orbit-tilt) * -1));
+				rotateX(var(--orbit-tilt)) rotateY(0deg) translateX(calc(var(--radius) * 5 / 6)) rotateY(0deg) rotateX(calc(var(--orbit-tilt) * -1));
 		}
 
 		25% {
 			transform:
-				rotateX(var(--orbit-tilt)) rotateY(90deg) translateX(140px) rotateY(-90deg) rotateX(calc(var(--orbit-tilt) * -1));
+				rotateX(var(--orbit-tilt)) rotateY(90deg) translateX(calc(var(--radius) * 5 / 6)) rotateY(-90deg) rotateX(calc(var(--orbit-tilt) * -1));
 		}
 
 		50% {
 			transform:
-				rotateX(var(--orbit-tilt)) rotateY(180deg) translateX(140px) rotateY(-180deg) rotateX(calc(var(--orbit-tilt) * -1));
+				rotateX(var(--orbit-tilt)) rotateY(180deg) translateX(calc(var(--radius) * 5 / 6)) rotateY(-180deg) rotateX(calc(var(--orbit-tilt) * -1));
 		}
 
 		75% {
 			transform:
-				rotateX(var(--orbit-tilt)) rotateY(270deg) translateX(140px) rotateY(-270deg) rotateX(calc(var(--orbit-tilt) * -1));
+				rotateX(var(--orbit-tilt)) rotateY(270deg) translateX(calc(var(--radius) * 5 / 6)) rotateY(-270deg) rotateX(calc(var(--orbit-tilt) * -1));
 		}
 
 		100% {
 			transform:
-				rotateX(var(--orbit-tilt)) rotateY(360deg) translateX(140px) rotateY(-360deg) rotateX(calc(var(--orbit-tilt) * -1));
+				rotateX(var(--orbit-tilt)) rotateY(360deg) translateX(calc(var(--radius) * 5 / 6)) rotateY(-360deg) rotateX(calc(var(--orbit-tilt) * -1));
 		}
 	}
 }

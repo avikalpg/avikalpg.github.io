@@ -129,10 +129,109 @@ const navigation = {
 	}
 };
 
+const profileLogos = {
+	allLogos: [
+		{
+			name: 'Alokit',
+			logo: 'alokit.png',
+			link: 'https://alokit.in'
+		},
+		{
+			name: 'FOSS United',
+			logo: 'FOSS_United.jpeg',
+			link: 'https://fossunited.org/'
+		},
+		{
+			name: 'Fresh Gravity',
+			logo: 'Fresh_Gravity.png',
+			link: 'https://freshgravity.com'
+		},
+		{
+			name: 'Google Developer Groups',
+			logo: 'GDG.png',
+			link: 'https://developers.google.com/community/gdg'
+		},
+		{
+			name: 'Goldman Sachs',
+			logo: 'Goldman_Sachs.svg',
+			link: 'https://www.goldmansachs.com/'
+		},
+		{
+			name: 'HSR HackerHouse',
+			logo: 'hsrhackerhouse.png',
+			link: 'https://hsrhackerhouse.lol'
+		},
+		{
+			name: "IIT Kanpur",
+			logo: 'IIT_Kanpur.png',
+			link: 'https://iitk.ac.in/'
+		},
+		{
+			name: 'InforMED',
+			logo: 'informed.png',
+			link: 'https://www.linkedin.com/in/informed-global-002a22169'
+		},
+		{
+			name: 'Microsoft Research',
+			logo: 'Microsoft_Research.jpeg',
+			link: 'https://www.microsoft.com/en-us/research/'
+		},
+		{
+			name: 'Newton School',
+			logo: 'Newton_School.png',
+			link: 'https://newtonschool.co/'
+		},
+		{
+			name: 'On Deck Founders (ODF)',
+			logo: 'ODF.jpeg',
+			link: 'https://beondeck.com'
+		},
+		{
+			name: 'Pariksha',
+			logo: 'Pariksha.webp',
+			link: 'https://www.linkedin.com/company/pariksha'
+		},
+		{
+			name: 'Stanford University',
+			logo: 'Stanford_University.webp',
+			link: 'https://stanford.edu'
+		},
+		{
+			name: 'Vibinex',
+			logo: 'vibinex.png',
+			link: 'https://vibinex.com'
+		},
+		{
+			name: 'YSI Global',
+			logo: 'Young_Sustainable_Impact.png',
+			link: 'https://www.linkedin.com/company/ysi---young-sustainable-impact/'
+		},
+	],
+
+	init() {
+		const baseRadius = 150; // based on the width of profile-photo in layout.css
+		const rotatingLogos = $('.rotating-logos');
+		rotatingLogos.empty();
+		this.allLogos.forEach((logoItem, idx) => {
+			const offset = 0.6 * (Math.random() * 2 - 1); // 60% of full-length [-1,1]
+			const orbitTilt = 0.6 * (Math.random() * 180 - 90); // 60% of full range [-90deg, 90deg]
+			const radius = 5 + Math.sqrt(baseRadius ** 2 - ((offset * baseRadius) ** 2 * Math.cos(Math.PI * orbitTilt / 180) ** 2))
+			console.log(`[profileLogos] ${logoItem.name}: offset=${offset}; orbitTilt=${orbitTilt}deg; radius: ${radius}`)
+			const rotatingLogo = `
+			<a href="${logoItem.link}" target="_blank" class="logo-item" style="--i:${idx}; --offset:${offset}; --orbit-tilt:${orbitTilt}deg; --radius:${radius}px">
+				<img src="images/logos/${logoItem.logo}" alt="${logoItem.name}">
+			</a>
+			`
+			rotatingLogos.append(rotatingLogo)
+		})
+	}
+}
+
 // Initialize everything when document is ready
 $(document).ready(function () {
 	analytics.init();
 	contactModal.init();
 	githubCarousel.init();
 	navigation.init();
+	profileLogos.init();
 });
