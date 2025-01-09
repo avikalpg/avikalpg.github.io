@@ -350,43 +350,21 @@ main.container {
 	font-size: 0.8em;
 }
 
-/* Article Full View Styles */
-.article-full-view {
-	width: 100%;
-	max-width: 800px;
-	margin: 0 auto;
-	padding: 20px;
-	background-color: white;
-	border-radius: 8px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
 .back-to-list {
-	background-color: var(--accent-color);
-	color: white;
+	position: sticky;
+	top: 20px;
+	left: -50px;
+	margin: 20px 0px;
+	background-color: transparent;
+	color: #666;
 	border: none;
-	padding: 10px 15px;
-	border-radius: 5px;
+	padding: 10px;
 	cursor: pointer;
-	margin-bottom: 20px;
-	transition: transform 0.3s ease;
+	transition: all 0.3s ease;
+	font-size: 1em;
 }
 
 .back-to-list:hover {
+	color: var(--accent-color);
 	transform: translateX(-10px);
-}
-
-.article-full-view h2 {
-	color: var(--text-color);
-	border-bottom: 2px solid var(--accent-color);
-	padding-bottom: 10px;
-}
-
-.article-full-view p {
-	line-height: 1.6;
-	color: var(--subtext-color);
-}
-
-.article-full-view a {
-	text-decoration: none;
 }
