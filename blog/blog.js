@@ -28,11 +28,39 @@ $(document).ready(function () {
 		$.get(base_folder + "/list_pages/" + fileName, function (htmlContent) {
 			$("section#content").html(htmlContent);
 
+			// Add click event for individual articles
+			$("section#content .article").on('click', function (e) {
+				e.preventDefault();
+				let articleUrl = $(this).attr('href');
+				loadArticleContent(articleUrl, category);
+			});
+
 			// Track page view for specific category
 			ga('create', 'UA-78761399-1', 'auto', category + 'Blog');
 			ga('send', 'pageview');
 		}).fail(function () {
 			console.error("Failed to load blog content for category: " + category);
+		});
+	}
+
+	// Function to load individual article content
+	function loadArticleContent(articleUrl, category) {
+		$.get(articleUrl, function (articleHtml) {
+			// Create a container for the article with a back button
+			let articleContainer = $('<div class="article-full-view"></div>');
+			let backButton = $('<button class="back-to-list">← Back to Articles</button>');
+
+			backButton.on('click', function () {
+				loadBlogContent(category);  // Default back to all articles
+			});
+
+			// Append back button and article content
+			articleContainer.append(backButton);
+			articleContainer.append(articleHtml);
+
+			$("section#content").html(articleContainer);
+		}).fail(function () {
+			console.error("Failed to load article: " + articleUrl);
 		});
 	}
 
