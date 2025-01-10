@@ -134,102 +134,136 @@ const profileLogos = {
 		{
 			name: 'Alokit',
 			logo: 'Alokit.png',
-			link: 'https://alokit.in'
+			link: 'https://alokit.in',
+			tags: ['startup', 'exp']
 		},
 		{
 			name: 'FOSS United',
 			logo: 'FOSS_United.png',
-			link: 'https://fossunited.org/'
+			link: 'https://fossunited.org/',
+			tags: ['member']
 		},
 		{
 			name: 'Fresh Gravity',
 			logo: 'Fresh_Gravity.png',
-			link: 'https://freshgravity.com'
+			link: 'https://freshgravity.com',
+			tags: ['exp']
 		},
 		{
 			name: 'Google Developer Groups',
 			logo: 'GDG.png',
-			link: 'https://developers.google.com/community/gdg'
+			link: 'https://developers.google.com/community/gdg',
+			tags: ['member']
 		},
 		{
 			name: 'Goldman Sachs',
 			logo: 'Goldman_Sachs.svg',
-			link: 'https://www.goldmansachs.com/'
+			link: 'https://www.goldmansachs.com/',
+			tags: ['exp']
 		},
 		{
 			name: 'HSR HackerHouse',
 			logo: 'hsrhackerhouse.png',
-			link: 'https://hsrhackerhouse.lol'
+			link: 'https://hsrhackerhouse.lol',
+			tags: ['member']
 		},
 		{
 			name: "IIT Kanpur",
 			logo: 'IIT_Kanpur.png',
-			link: 'https://iitk.ac.in/'
+			link: 'https://iitk.ac.in/',
+			tags: ['alumnus', 'member']
 		},
 		{
 			name: 'InforMED',
 			logo: 'informed.png',
-			link: 'https://www.linkedin.com/in/informed-global-002a22169'
+			link: 'https://www.linkedin.com/in/informed-global-002a22169',
+			tags: ['startup']
 		},
 		{
 			name: 'Microsoft Research',
 			logo: 'Microsoft_Research.png',
-			link: 'https://www.microsoft.com/en-us/research/'
+			link: 'https://www.microsoft.com/en-us/research/',
+			tags: ['exp']
 		},
 		{
 			name: 'Newton School',
 			logo: 'Newton_School.png',
-			link: 'https://newtonschool.co/'
+			link: 'https://newtonschool.co/',
+			tags: ['exp']
 		},
 		{
 			name: 'On Deck Founders (ODF)',
 			logo: 'ODF.png',
-			link: 'https://beondeck.com'
+			link: 'https://beondeck.com',
+			tags: ['member', 'alumnus']
 		},
 		{
 			name: 'Pariksha',
 			logo: 'Pariksha.webp',
-			link: 'https://www.linkedin.com/company/pariksha'
+			link: 'https://www.linkedin.com/company/pariksha',
+			tags: ['exp']
 		},
 		{
 			name: 'Stanford University',
 			logo: 'Stanford_University.webp',
-			link: 'https://stanford.edu'
+			link: 'https://stanford.edu',
+			tags: ['alumnus']
 		},
 		{
 			name: 'Vibinex',
 			logo: 'vibinex.png',
-			link: 'https://vibinex.com'
+			link: 'https://vibinex.com',
+			tags: ['startup', 'exp']
 		},
 		{
 			name: 'YSI Global',
 			logo: 'Young_Sustainable_Impact.png',
-			link: 'https://www.linkedin.com/company/ysi---young-sustainable-impact/'
+			link: 'https://www.linkedin.com/company/ysi---young-sustainable-impact/',
+			tags: ['member', 'alumnus']
 		},
 	],
 
 	orbitStrategy: 'center', // center or offset
 
-	init() {
+	filterByTag(tag) {
 		const baseRadius = 150; // based on the width of profile-photo in layout.css
 		const rotatingLogos = $('.rotating-logos');
 		rotatingLogos.empty();
-		this.allLogos.forEach((logoItem, idx) => {
+
+		const filteredLogos = tag === 'all' ?
+			this.allLogos :
+			this.allLogos.filter(logo => logo.tags.includes(tag));
+
+		filteredLogos.forEach((logoItem, idx) => {
 			const offset = (this.orbitStrategy == 'center') ?
 				0 : // all logos will revolve around the center
 				0.6 * (Math.random() * 2 - 1); // 60% of full-length [-1,1]
 			const orbitTilt = 0.6 * (Math.random() * 180 - 90); // 70% of full range [-90deg, 90deg]
-			const radius = Math.sqrt(baseRadius ** 2 - ((offset * baseRadius) ** 2 * Math.cos(Math.PI * orbitTilt / 180) ** 2))
-			console.log(`[profileLogos] ${logoItem.name}: offset=${offset}; orbitTilt=${orbitTilt}deg; radius: ${radius}`)
+			const radius = Math.sqrt(baseRadius ** 2 - ((offset * baseRadius) ** 2 * Math.cos(Math.PI * orbitTilt / 180) ** 2));
+
 			const rotatingLogo = `
 			<a href="${logoItem.link}" target="_blank" class="logo-item ${this.orbitStrategy}" style="--i:${idx}; --offset:${offset}; --orbit-tilt:${orbitTilt}deg; --radius:${radius}px;">
 				<img src="images/logos/${logoItem.logo}" alt="${logoItem.name}">
 			</a>
-			`
-			rotatingLogos.append(rotatingLogo)
-		})
+			`;
+			rotatingLogos.append(rotatingLogo);
+		});
+
+		// Update active button
+		$('.tag-btn').removeClass('active');
+		$(`.tag-btn[data-tag="${tag}"]`).addClass('active');
+	},
+
+	init() {
+		this.filterByTag('all'); // Initial load with all logos
+
+		// Add click handlers for tag buttons
+		$('.tag-btn').on('click', (e) => {
+			const tag = $(e.currentTarget).data('tag');
+			this.filterByTag(tag);
+		});
 	}
-}
+};
 
 // Initialize everything when document is ready
 $(document).ready(function () {
