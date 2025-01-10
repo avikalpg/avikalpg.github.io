@@ -260,6 +260,7 @@ nav .logo img {
 
 .about-content {
 	flex: 2;
+	text-align: center;
 }
 
 .about-content h2 {
