@@ -133,12 +133,12 @@ const profileLogos = {
 	allLogos: [
 		{
 			name: 'Alokit',
-			logo: 'alokit.png',
+			logo: 'Alokit.png',
 			link: 'https://alokit.in'
 		},
 		{
 			name: 'FOSS United',
-			logo: 'FOSS_United.jpeg',
+			logo: 'FOSS_United.png',
 			link: 'https://fossunited.org/'
 		},
 		{
@@ -173,7 +173,7 @@ const profileLogos = {
 		},
 		{
 			name: 'Microsoft Research',
-			logo: 'Microsoft_Research.jpeg',
+			logo: 'Microsoft_Research.png',
 			link: 'https://www.microsoft.com/en-us/research/'
 		},
 		{
@@ -183,7 +183,7 @@ const profileLogos = {
 		},
 		{
 			name: 'On Deck Founders (ODF)',
-			logo: 'ODF.jpeg',
+			logo: 'ODF.png',
 			link: 'https://beondeck.com'
 		},
 		{
