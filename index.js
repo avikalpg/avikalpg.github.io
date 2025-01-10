@@ -208,17 +208,21 @@ const profileLogos = {
 		},
 	],
 
+	orbitStrategy: 'center', // center or offset
+
 	init() {
 		const baseRadius = 150; // based on the width of profile-photo in layout.css
 		const rotatingLogos = $('.rotating-logos');
 		rotatingLogos.empty();
 		this.allLogos.forEach((logoItem, idx) => {
-			const offset = 0.6 * (Math.random() * 2 - 1); // 60% of full-length [-1,1]
-			const orbitTilt = 0.6 * (Math.random() * 180 - 90); // 60% of full range [-90deg, 90deg]
-			const radius = 5 + Math.sqrt(baseRadius ** 2 - ((offset * baseRadius) ** 2 * Math.cos(Math.PI * orbitTilt / 180) ** 2))
+			const offset = (this.orbitStrategy == 'center') ?
+				0 : // all logos will revolve around the center
+				0.6 * (Math.random() * 2 - 1); // 60% of full-length [-1,1]
+			const orbitTilt = 0.6 * (Math.random() * 180 - 90); // 70% of full range [-90deg, 90deg]
+			const radius = Math.sqrt(baseRadius ** 2 - ((offset * baseRadius) ** 2 * Math.cos(Math.PI * orbitTilt / 180) ** 2))
 			console.log(`[profileLogos] ${logoItem.name}: offset=${offset}; orbitTilt=${orbitTilt}deg; radius: ${radius}`)
 			const rotatingLogo = `
-			<a href="${logoItem.link}" target="_blank" class="logo-item" style="--i:${idx}; --offset:${offset}; --orbit-tilt:${orbitTilt}deg; --radius:${radius}px">
+			<a href="${logoItem.link}" target="_blank" class="logo-item ${this.orbitStrategy}" style="--i:${idx}; --offset:${offset}; --orbit-tilt:${orbitTilt}deg; --radius:${radius}px;">
 				<img src="images/logos/${logoItem.logo}" alt="${logoItem.name}">
 			</a>
 			`
