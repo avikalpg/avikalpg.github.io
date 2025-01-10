@@ -144,6 +144,12 @@ const profileLogos = {
 			tags: ['member']
 		},
 		{
+			name: 'Free Time',
+			logo: 'FreeTimeLogo.png',
+			link: 'https://myfreetimeinaweek.in',
+			tags: ['proj']
+		},
+		{
 			name: 'Fresh Gravity',
 			logo: 'Fresh_Gravity.png',
 			link: 'https://freshgravity.com',
@@ -154,6 +160,12 @@ const profileLogos = {
 			logo: 'GDG.png',
 			link: 'https://developers.google.com/community/gdg',
 			tags: ['member']
+		},
+		{
+			name: 'GetMega',
+			logo: 'GetMega.png',
+			link: 'https://getmega.com',
+			tags: ['exp']
 		},
 		{
 			name: 'Goldman Sachs',
@@ -168,6 +180,12 @@ const profileLogos = {
 			tags: ['member']
 		},
 		{
+			name: 'Hustler IDE Extension',
+			logo: 'HustlerIDE.png',
+			link: 'https://marketplace.visualstudio.com/items?itemName=vibinex.hustler',
+			tags: ['proj']
+		},
+		{
 			name: "IIT Kanpur",
 			logo: 'IIT_Kanpur.png',
 			link: 'https://iitk.ac.in/',
@@ -178,6 +196,12 @@ const profileLogos = {
 			logo: 'informed.png',
 			link: 'https://www.linkedin.com/in/informed-global-002a22169',
 			tags: ['startup']
+		},
+		{
+			name: 'Karma Healthcare',
+			logo: 'karma-healthcare.png',
+			link: 'https://karmahealthcare.in/',
+			tags: ['exp']
 		},
 		{
 			name: 'Microsoft Research',
@@ -204,10 +228,28 @@ const profileLogos = {
 			tags: ['exp']
 		},
 		{
+			name: 'Git Skyline',
+			logo: 'skyline.png',
+			link: 'https://github.com/avikalpg/skyline',
+			tags: ['proj']
+		},
+		{
 			name: 'Stanford University',
 			logo: 'Stanford_University.webp',
 			link: 'https://stanford.edu',
 			tags: ['alumnus']
+		},
+		{
+			name: 'Sudoku Helper',
+			logo: 'SudokuHelperLogo.png',
+			link: 'https://chromewebstore.google.com/detail/sudoku-solver/hbnnbafoijebdcdgicccgjmmhlabimgo',
+			tags: ['proj']
+		},
+		{
+			name: 'Typing Analyst',
+			logo: 'TypingAnalyst.png',
+			link: 'https://typing-analyst.vercel.app',
+			tags: ['proj']
 		},
 		{
 			name: 'Vibinex',
