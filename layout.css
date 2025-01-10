@@ -75,8 +75,8 @@ nav .logo img {
 }
 
 .hero {
-	background: var(--primary-gradient);
-	color: white;
+	background: var(--secondary-background);
+
 	text-align: center;
 	padding: 6rem 2rem;
 }
@@ -121,7 +121,7 @@ nav .logo img {
 
 .about-me {
 	padding: 6rem 2rem;
-	background-color: var(--secondary-background);
+	background: var(--primary-gradient);
 }
 
 .about-container {
@@ -265,13 +265,13 @@ nav .logo img {
 .about-content h2 {
 	font-size: 2.5rem;
 	margin-bottom: 1.5rem;
-	color: #2d3436;
+	color: white;
 }
 
 .about-content p {
 	font-size: 1.1rem;
 	line-height: 1.8;
-	color: var(--subtext-color);
+	color: var(--secondary-background);
 }
 
 @media (max-width: 768px) {
