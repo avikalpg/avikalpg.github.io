@@ -13,6 +13,35 @@
 	font-family: 'Inter', sans-serif;
 }
 
+.emph {
+	position: relative;
+	display: inline-block;
+	/* Prevents background from spanning full line width */
+	padding: 0 0.5em;
+	/* Adds some padding around the text */
+	color: transparent;
+	background-clip: text;
+	background-image: var(--primary-gradient);
+	-webkit-background-clip: text;
+	/* Safari support */
+}
+
+.emph::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	z-index: -1;
+	border-radius: 3px;
+}
+
+*:has(>.emph) {
+	isolation: isolate;
+}
+
 body {
 	background-color: var(--secondary-background);
 	color: var(--text-color);
