@@ -481,16 +481,18 @@ nav .logo img {
 	display: flex;
 	justify-content: center;
 	gap: 2em;
+	flex-wrap: wrap;
 }
 
 .showcase-hero {
 	text-align: center;
-	margin-bottom: 30px;
+	width: 40%;
 }
 
 .showcase-hero h1 {
 	font-size: 2.5em;
 	margin-bottom: 10px;
+	text-align: center;
 }
 
 .showcase-hero p {
@@ -499,11 +501,14 @@ nav .logo img {
 	width: 75%;
 	margin-left: auto;
 	margin-right: auto;
+	text-align: center;
 }
 
 .showcase-demo {
 	margin: 10px 0;
 	min-width: 40%;
+	max-width: 50%;
+	flex: 1 1 100%;
 }
 
 .showcase-demo img {
@@ -528,6 +533,10 @@ nav .logo img {
 	padding: 20px;
 	text-align: center;
 	transition: transform 0.3s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
 }
 
 .feature-card:hover {
@@ -558,6 +567,53 @@ nav .logo img {
 
 .showcase-call-to-action a:hover {
 	background-color: #0056b3;
+}
+
+@media (max-width: 1024px) {
+	.showcase-hero>p {
+		display: none;
+	}
+
+	.feature-grid {
+		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+		gap: 5px;
+	}
+
+	.feature-card i {
+		font-size: 1.5em;
+	}
+
+	.feature-card {
+		padding: 15px;
+		flex-direction: row;
+		text-align: left;
+	}
+
+	.feature-card p {
+		margin: 0;
+	}
+}
+
+@media (max-width: 480px) {
+	.showcase-body {
+		flex-direction: column;
+	}
+
+	.showcase-demo {
+		min-width: 100%;
+	}
+
+	.showcase-hero {
+		width: 100%;
+	}
+
+	.showcase-hero h1 {
+		font-size: 2em;
+	}
+
+	.showcase-hero p {
+		font-size: 0.9em;
+	}
 }
 
 .recent-work,
