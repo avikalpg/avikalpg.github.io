@@ -107,12 +107,18 @@ nav .logo img {
 	background: var(--secondary-background);
 
 	text-align: center;
-	padding: 6rem 2rem;
+	height: 75vh;
 }
 
 .hero-content {
+	position: absolute;
+	top: 0;
+	left: 50%;
 	max-width: 800px;
-	margin: 0 auto;
+	padding: 10rem 2rem;
+	margin: 0;
+	translate: -50%;
+	pointer-events: none
 }
 
 .hero-title {
@@ -123,6 +129,10 @@ nav .logo img {
 .hero-subtitle {
 	font-size: 1.5rem;
 	opacity: 0.9;
+}
+
+.hero-background {
+	border: none;
 }
 
 .say-hello-btn {
