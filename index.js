@@ -230,7 +230,7 @@ const profileLogos = {
 		{
 			name: 'Git Skyline',
 			logo: 'skyline.png',
-			link: 'https://github.com/avikalpg/skyline',
+			link: 'https://gitskyline.vercel.app',
 			tags: ['proj']
 		},
 		{
