@@ -104,10 +104,11 @@ nav .logo img {
 }
 
 .hero {
-	background: var(--secondary-background);
-
+	background: var(--text-color);
+	color: var(--secondary-background);
+	background: var(--primary-gradient);
 	text-align: center;
-	height: 75vh;
+	height: 90vh;
 }
 
 .hero-content {
@@ -133,6 +134,7 @@ nav .logo img {
 
 .hero-background {
 	border: none;
+	background-color: transparent;
 }
 
 .say-hello-btn {
@@ -160,7 +162,7 @@ nav .logo img {
 
 .about-me {
 	padding: 6rem 2rem;
-	background: var(--primary-gradient);
+	background: var(--accent-color);
 }
 
 .about-container {
