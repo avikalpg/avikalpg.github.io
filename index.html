@@ -1,210 +1,282 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-	<title> Avikalp Kumar Gupta</title>
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<meta charset="UTF-8">
+	<title>Avikalp Gupta | Entrepreneur, AI Specialist & Tech Generalist</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 	<link rel="shortcut icon" href="images/favicon.ico">
 	<link rel="stylesheet" href="layout.css" />
-	<center>
-		<div id="header" >
-			<div style="width:1000px; padding:12px" align=left>
-				<font size=40>Avikalp Kumar Gupta</font>
-				<div class="socialLinks">
-					<div id="twitter" >
-						<a href="https://www.twitter.com/AvikalpGupta"><img style="padding:4px" height=40 src="images/twitter.png" /></a>
-					</div>
-					<div id="mastodon" >
-						<a rel="me" href="https://defcon.social/@avikalp"><img style="padding:4px" height=40 src="images/mastodon.png" /></a>
-					</div>
-					<div id="medium" >
-						<a href="https://avikalpgupta.medium.com/"><img style="padding:4px" height=40 src="images/medium.png" /></a>
-					</div>
-					<div id="github" >
-						<a href="https://github.com/avikalpg"><img style="padding:4px" height=40 src="images/github.png" /></a>
-					</div>
-					<div id="linkedIn" >
-						<a href="https://in.linkedin.com/in/avikalp-gupta"><img style="padding:4px" height=40 src="images/linkedin.png" /></a>
-					</div>
-					<div id="facebook" >
-						<a href="https://www.facebook.com/avikalp.gupta"><img style="padding:4px" height=40 src="images/fb-button-circle.gif" /></a>
-					</div>
-					<!--<div id="resumee">
-						<a href="resumee.php"><img style="border-radius:20px" height=45  src="images/symbol_resume.gif" /></a>
-					</div>-->
-				</div>
-			</div>
-		</div>
-	</center>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="index.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
-
-<body link="#aaf" vlink="#aad" alink="#ff0">
-<div class="wrapper">
-	<div style="float:left; height:100px; width:100%"></div>
-	<div id="main">
-		<div id="menu">
-		<font size=4>
-			<ul>
-				<a class="index"><li>Home</li></a>
-				<a class="acads"><li>Academics</li></a>
-				<a class="projects"><li>Projects</li></a>
-				<a class="extra"><li>Extra-Curricular</li></a>
-				<a class="blog"><li>Blog</li></a>
-			</ul>
-		</font>
+<body>
+	<nav>
+		<a class="logo" href="/">
+			<img src="images/favicon.ico" alt="Avikalp Gupta Logo">
+			Avikalp Gupta
+		</a>
+		<div class="hamburger-menu" onclick="toggleMenu()">
+			<i class="fas fa-bars"></i>
 		</div>
-		<!-- <div id="picture" style="font-family:'Ubuntu Mono'"> -->
-		<div id="picture" style="font-family:'Ubuntu Condensed'">
-			<img src="images/profile.jpg" style=" height:225px; border-radius:10px" >
+		<div class="nav-menu">
+			<a href="/blog" class="blog-btn">Blog</a>
+			<button class="say-hello-btn" onclick="openContactModal()">Say Hello</button>
+		</div>
+	</nav>
 
-			<h3>Title</h3>
-			Founder &amp; CEO, Vibinex (Alokit Innovations Pvt. Ltd.)<br />
-			<small>
-				ex-Head of Data Science, GetMega<br />
-				ex-Senior Consultant, Artificial Intelligence, Fresh Gravity Software Services Pvt. Ltd.<br />
-				ex-Research Fellow, Microsoft Research Lab Pvt. Ltd.<br>
-			</small>
+	<section class="hero">
+		<iframe
+			src="https://gitskyline.vercel.app/avikalpg/embed?color=%235a67d8&enableZoom=false&base=true&enablePan=false&enableDamping=false"
+			width="100%" height="100%" frameborder="0" class="hero-background"></iframe>
+		<div class="hero-content">
+			<h1 class="hero-title">Entrepreneur, AI Specialist & Tech Generalist</h1>
+			<p class="hero-subtitle">
+				I design and build innovative products that make a difference,
+				with a focus on productivity and software development.
+			</p>
+		</div>
+	</section>
 
-			<h3>Education</h3>
-			Computer Science and Engineering, IIT Kanpur (2016)<br>
-			<small>
-				Strategic Digital Marketing, Cambridge Judge Business School (CJBS) through UpGrad (2019)<br />
-				Technology Innovation, Stanford University Summer School (2019)<br />
-			</small>
+	<section class="about-me">
+		<div class="about-container">
+			<div class="about-image">
+				<div class="profile-container">
+					<img src="images/profile.png" alt="Avikalp Gupta" class="profile-photo">
+					<div class="rotating-logos">
+						<div class="logo-item" style="--i:4"><img src="images/logos/vibinex.png" alt="Vibinex"></div>
+						<div class="logo-item" style="--i:5"><img src="images/logos/informed.png" alt="InforMED"></div>
+						<div class="logo-item" style="--i:0"><img src="images/logos/alokit.png" alt="Alokit"></div>
+					</div>
+				</div>
+				<div class="tag-selector">
+					<div class="tag-ring">
+						<button class="tag-btn active" data-tag="all">All</button>
+						<button class="tag-btn" data-tag="exp">Experience</button>
+						<button class="tag-btn" data-tag="member">Member</button>
+						<button class="tag-btn" data-tag="alumnus">Alumni</button>
+						<button class="tag-btn" data-tag="proj">Open Source Projects</button>
+						<button class="tag-btn" data-tag="startup">Startups</button>
+					</div>
+				</div>
+			</div>
+			<div class="about-content">
+				<h2>Hi, I'm Avikalp.</h2>
+				<p>For over 10 years, I've been building commercial software powered by AI and Machine Learning. I
+					combine my entrepreneurial mindset with technical expertise to build products that solve real-world
+					problems.</p>
+				<p style="margin-top: 10px">My journey involves primary research, contributing to open-source projects,
+					mentoring tech teams, and founding startups. I'm passionate about using technology to help people
+					<span class="emph">do and achieve more in their lives</span>.
+					So my projects are generally in the category of productivity, innovation or social impact.
+				</p>
+			</div>
+		</div>
+	</section>
 
-			<h3>Research Interests</h3>
-			Software Engineering</br>
-			Natural Language Processing</br>
-			Machine Learning</br>
-			Computer Vision</br>
-			Information and Communication Technology for Development (ICT-D)</br>
+	<section class="showcase-project">
+		<div class="showcase-body">
+			<div class="showcase-hero">
+				<subtitle>FEATURED PROJECT</subtitle>
+				<h1>Vibinex</h1>
+				<h2>The most intuitive UI for Code Reviews</h2>
+				<p>Streamline your development process with our cutting-edge code review platform
+				</p>
+				<div class="showcase-features">
+					<div class="feature-grid">
+						<div class="feature-card">
+							<i class="fas fa-user-check"></i>
+							<p>Accurate Reviewer Assignment</p>
+						</div>
+						<div class="feature-card">
+							<i class="fas fa-code-branch"></i>
+							<p>DiffGraph: Visualize Code Changes</p>
+						</div>
+						<div class="feature-card">
+							<i class="fas fa-file-code"></i>
+							<p>Personalized File & Line Highlighting</p>
+						</div>
+						<div class="feature-card">
+							<i class="fas fa-list-ol"></i>
+							<p>Pull Request Prioritization</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="showcase-demo">
+				<a href="https://www.youtube.com/watch?v=IdCfbRLiFCQ" target="_blank"><img
+						src="./images/DiffGraph-Demo-mini.gif" alt="DiffGraph Demo"></a>
+			</div>
+		</div>
+		<div class="showcase-call-to-action">
+			<a href="https://vibinex.com" target="_blank">Learn More</a>
+			<a href="https://vibinex.com/demo" target="_blank">Watch Demo</a>
+		</div>
+	</section>
 
-			<h3>Contact</h3>
-			<!-- Email ID: <a href="mailto:avikalpg@gmail.com">avikalpg@gmail.com</a><br> -->
-			<form action="mailto:avikalpgupta@gmail.com?subject=Contact from home page" method="post" enctype="text/plain">
-				Name:&nbsp;&nbsp;<input type="text" name="name" placeholder="Your name please..."><br>
-				E-mail:&nbsp;<input type="text" name="email" placeholder="Your prefered e-mail id..."><br>
-				Content:<br>
-				<textarea name="comment" placeholder="Your message..." style="width:90%; height:100px"></textarea><br><br>
-				<input type="submit" value="Send">
-				<input type="reset" value="Reset">
+	<section class="recent-work">
+		<h2>Projects</h2>
+		<div class="work-grid">
+			<div class="work-card">
+				<h3>Alokit.in</h3>
+				<p>Technical team building platform simplifying hiring processes</p>
+				<a href="https://alokit.in" target="_blank">Start an audition project</a>
+			</div>
+			<div class="work-card">
+				<h3>Free Time</h3>
+				<p>Tool to help you recognize the amount of time you have in your life for
+					things that you love.</p>
+				<a href="https://myfreetimeinaweek.in" target="_blank">Try it now!</a>
+			</div>
+			<div class="work-card">
+				<h3>Sudoku Helper</h3>
+				<p>A Chrome extension that helps solve Sudoku puzzles with ease.</p>
+				<a href="https://chromewebstore.google.com/detail/sudoku-solver/hbnnbafoijebdcdgicccgjmmhlabimgo"
+					target="_blank">Install on Chrome</a>
+			</div>
+			<div class="work-card">
+				<h3>GitHub Skyline</h3>
+				<p>A web application that visualizes your GitHub contributions over time.</p>
+				<a href="https://gitskyline.vercel.app" target="_blank">Try it now!</a>
+			</div>
+			<div class="work-card">
+				<h3>Typing Analyst</h3>
+				<p>A tool that analyzes your typing speed and accuracy to help you improve.</p>
+				<a href="https://typing-analyst.vercel.app" target="_blank">Get started!</a>
+			</div>
+			<div class="work-card">
+				<h3>HustlerIDE</h3>
+				<p>A Visual Studio Code extension that enhances your coding experience.</p>
+				<a href="https://marketplace.visualstudio.com/items?itemName=vibinex.hustler" target="_blank">Install
+					now!</a>
+			</div>
+			<div class="work-card">
+				<h3>Poker Bot-Arena</h3>
+				<p>Converted a project that let's you practice Poker with friends into a project that let's you practice
+					Poker with bots.</p>
+				<a href="https://github.com/avikalpg/poker-api" target="_blank">Source code</a>
+			</div>
+			<div class="work-card">
+				<h3>Visual guidance for 3-dof robotic arm</h3>
+				<p>Visualizing 3D robotic motion: Using cameras to map collision-free paths for articulated arms,
+					blending robotics and computer vision</p>
+				<a href="/archive/cs498a/FinalReport.pdf" target="_blank">Report</a>
+			</div>
+			<div class="work-card">
+				<h3>Car sim in C++</h3>
+				<p>A car simulation created using the open-GL library (intended to be a game)</p>
+				<a href="https://github.com/avikalpg/Graphics" target="_blank">Download & Run</a>
+			</div>
+			<div class="work-card">
+				<h3>Indian Voting Assistant</h3>
+				<p>A personalised helper for voters in Indian Elections for only viewing information relevant to them
+					for casting a vote.</p>
+				<a href="https://github.com/avikalpg/IndianVotingAssistant" target="_blank">Source code (WIP)</a>
+			</div>
+			<div class="work-card">
+				<h3>Course Helper</h3>
+				<p>An Android app to guide IIT Kanpur students in selecting the right courses, tracking credits, and
+					optimizing their academic journey with ease</p>
+				<a href="/archive/cs654/project/helper-cs654a-project.pdf" target="_blank">Report</a>
+			</div>
+			<div class="work-card">
+				<h3>Pristine: IoT garbage tracking</h3>
+				<p>An Android app that tracks the location of lo-tech SIM-enabled plastic boxes using just the tower id
+					sent to it as an SMS.</p>
+				<a href="https://github.com/avikalpg/Pristine/" target="_blank">Source code</a>
+			</div>
+			<div class="work-card">
+				<h3>Games: Fingersss, Othello, Two cars</h3>
+				<p>Open-source productivity tools for personal growth</p>
+				<!-- <a href="" target="_blank">Try it now!</a> -->
+			</div>
+		</div>
+	</section>
+
+	<section class="sponsor-section">
+		<div class="container">
+			<h2>Support My Open Source Work</h2>
+			<div class="sponsor-content">
+				<div class="sponsor-main">
+					<iframe src="https://github.com/sponsors/avikalpg/card" title="Sponsor avikalpg" height="225"
+						width="600" frameborder="0">
+					</iframe>
+				</div>
+			</div>
+			<div class="open-source-carousel">
+				<div class="carousel-container">
+					<div class="carousel-track">
+						<div class="carousel-slide">
+							<a href="https://github.com/avikalpg/typing-analyst" target="_blank">
+								<img src="https://github-readme-stats.vercel.app/api/pin/?username=avikalpg&repo=typing-analyst"
+									alt="Typing Analyst">
+							</a>
+						</div>
+						<div class="carousel-slide">
+							<a href="https://github.com/avikalpg/skyline" target="_blank">
+								<img src="https://github-readme-stats.vercel.app/api/pin/?username=avikalpg&repo=skyline"
+									alt="Skyline">
+							</a>
+						</div>
+						<div class="carousel-slide">
+							<a href="https://github.com/avikalpg/free-time" target="_blank">
+								<img src="https://github-readme-stats.vercel.app/api/pin/?username=avikalpg&repo=free-time"
+									alt="Free Time">
+							</a>
+						</div>
+						<div class="carousel-slide">
+							<a href="https://github.com/vibinex/vibinex" target="_blank">
+								<img src="https://github-readme-stats.vercel.app/api/pin/?username=vibinex&repo=vibinex"
+									alt="Vibinex">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="cta-section">
+		<h2>Interested in Collaborating?</h2>
+		<p>I'm always open to discussing innovative projects and opportunities.</p>
+		<button class="say-hello-btn" onclick="openContactModal()">
+			<i class="far fa-comments" style="margin-right: 5px;"></i>Start a Conversation
+		</button>
+	</section>
+
+	<div id="contact-modal" class="contact-modal">
+		<div class="contact-form-container">
+			<span class="close-icon" onclick="closeContactModal()">&times;</span>
+			<h2>Get in Touch</h2>
+			<form class="contact-form" action="mailto:avikalpgupta@gmail.com" method="post" enctype="text/plain">
+				<input type="text" name="name" placeholder="Your Name" required>
+				<input type="email" name="email" placeholder="Your Email" required>
+				<textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+				<button type="submit">Send Message</button>
 			</form>
-			<p><font size=1>If nothing happens on clicking send button, it means that your mail client is not well installed. Please see the source of this page to find the email id in that case.</font></p>
-		</div>
-		<div id="content">
-			<div id="index">
-				<div>
-					<h3>Sponsor</h3>
-					<iframe src="https://github.com/sponsors/avikalpg/card" title="Sponsor avikalpg" width="100%" height="225px" style="border: 0;"></iframe>
-				</div>
-				<div>
-					<h3>Bio</h3>
-					<p>
-						I am a tech generalist, with an interest in building solutions to socio-economic problems (towards the SDGs 2030 of UN). I graduated from the computer science department of IIT Kanpur in 2016 and have built a diverse skillset through my internships and work experiences at various companies, ranging from the likes of Microsoft Research &amp; Goldman Sachs to tiny startups, with less than 10 people, in education, healthcare and gaming industries.
-					</p>
-					<!-- <p>I have done an internship at <a href="http://www.goldmansachs.com">Goldman Sachs</a>, Banglore in my 3rd year summer on cost optimization. I will be working as a Research Fellow in <a href="http://research.microsoft.com/">Microsoft Research</a> for the next couple of years.</p> -->
-					<!--<p>
-						I currently work in a <a href="https://getmega.com">stealth-mode gaming startup</a> in India as a member of the tech team. And on the side, I am starting a mentorship platform named <a href="https://alokit.in">Alokit Innovations</a>.
-					</p>-->
-					<p>
-						I am currently building <a href="https://vibinex.com">Vibinex</a> for simplifying the process of technical team building, especially in software.
-						Alongside this, I am also thoroughly involved with <a href="https://fossunited.org/">FOSS United</a> and all their initiatives for promoting
-						Free (as in "Freedom", and not money-wise) and Open-source Software.
-					</p>
-					<p>
-						I am also working on my own open-source project, <a href="https://myfreetimeinaweek.in">Free Time</a>, which is a suite of productivity tools
-						for individuals that helps them do more and live happier.
-					</p>
-					<h4>Towards United Nations' Sustainable Development Goals (2030)</h4>
-					<p>I founded <a href="https://vibinex.com">Vibinex</a> in 2020 as a mentorship platform. It has taken the shape of a technical hiring platform for software
-					workers. Hence, it is helping us towards both SDG4 (Education) and SDG8 (Economic Growth)</p>
-					<p>Currently, I am connected to various programs which aim at the SDGs. Some of these organizations, along with my associations with them are as follows:
-						<ul>
-							<li>Member, IIT Kanpur Alumni Association: SEE Initiative (SEE: Social Entrepreneurs and Enterprises)</li>
-							<li>Fellow, YSI Global (YSI: Young Sustainable Impact), Norway</li>
-							<li>Ambassador, <a href="https://www.globalimpact.world/">Global Impact Network</a></li>
-						</ul>
-					</p>
-				</div>
-				<div>
-					<h3>News</h3>
-					<iframe frameborder=0 style="width:100%; height:30%" src="news.html"></iframe>
-				</div>
-				<div>
-					<h3>Topics of Interests</h3>
-					<iframe frameborder=0 style="width:100%; height:60%" src="interests.html"></iframe>
-				</div>
-			</div>
-			<div id="acads">
-				<div>
-					<h3>Academic Achievements</h3>
-					<ul style="list-style-type:None; margin:0; padding:0">
-						<li>IIT-JEE 2012: All India Rank 99<br>(which is more than 99.99 percentile)
-						<li>KVPY Scholaship Test (2011) : AIR 175
-						<li>Received "Top 1%" certificate in IPhO 2011 (International Physics Olympiad).
-						<li>ResoSTaRT 2011: AIR 29
-						<li>ResoNET 2010: AIR 59 (recieved scholarship from Resonance Eduventures Pvt. Lmt.)
-						<li>Rank 1 in district-level "Science Quiz" (2009) conducted in Surat by Quantum Classes Pvt. Ltd.
-						<li>Represented School (J.H.Ambani Saraswat Vidyamandir, Surat) in Ramanujam Mathematics Quiz, which is an interschool quiz competition conducted by the Radiant Academy School in Surat, for 2 consecutive years:-
-							<ol start=2007>
-								<li>Winners
-								<li>Runner-Up
-							</ol>
-						<li>Represented School in Prayas Environment Quiz '08 (conducted by WWF) and stood 3rd in Surat district.
-					</ul>
-				</div>
-				<div>
-					<h3>Computer Skills</h3>
-					<ul>
-						<li><b>Programming</b>: C, C++ (STL+OpenGL), Git, Octave/MATLAB, Scala, Oz/Mozart
-						<li><b>Markup</b>: Latex &amp; Beamer, GnuPlot
-						<li><b>Web Development</b>: PHP, HTML+CSS, JavaScript (including JQuery)+AJAX, CakePHP framework
-						<li><b>Scripting</b>: Bash, Perl and Python
-						<li><b>Database Management &amp; Big data analysis</b>: MySQL, MongoDB, R
-						<li><b>Version control systems</b>: Git, Subversion
-						<li><b>Hardware Description Languages</b>:MIPS (assembly language), Blue Spec Verilog (BSV) machine language
-					</ul>
-				</div>
-			</div>
-			<div id="projects">
-				<div>
-					<h3>Computer Science Projects</h3>
-					<iframe frameborder=0 style="width:100%; height:60%" src="cse_projects.html"></iframe>
-				</div>
-				<div>
-					<h3>Other Projects</h3>
-					<iframe frameborder=0 style="width:100%; height:30%" src="other_projects.html"></iframe>
-				</div>
-			</div>
-			<div id="extra">
-				<div>
-					<h3>Dance</h3>
-					<iframe frameborder=0 style="width:100%; height:60%" src="dance.html"></iframe>
-				</div>
-				<div>
-					<h3>Football</h3>
-				</div>
-				<div>
-					<h3>Others</h3>
-					<ul>Black-belt in Karate Shodan-Ho
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div id="blog_content">
-			<iframe frameborder=0 style="width:100%; height:60%" src="blog/blog.html"></iframe>
 		</div>
 	</div>
-<div class="push"></div>
-</div>
 
-<div class="footer" id="footer"><font color="#aaa">
-	<center><a href="//www.cse.iitk.ac.in">C.S.E.</a> | <a href="//www.iitk.ac.in">IIT Kanpur</a> | <a href="//home.iitk.ac.in/~avikalpg">Avikalp Kumar Gupta</a></center>
-<!--	Contact Information: <a href="mailto:avikalpgupta@gmail.com">avikalpgupta@gmail.com</a><br>-->
-	Link to Course Works (<a href="courses_guide.html">here</a>)<br>
-		Link to resumes: <a href="resumee.html">Web resume</a>, <a href="Resumes/1-page_core.pdf">One Page Core resume</a>, <a href="Resumes/2-page_core.pdf">Two Page Core resume</a>, <a href="Resumes/Non-Core_Resume_1page_Final.pdf">One page non-core resume</a></br>
-	Link to <a href="beta/home.html">Beta Site</a>
-</font></div>
+	<footer class="footer">
+		<div class="footer-logo">
+			<img src="images/favicon.ico" alt="Avikalp Gupta Logo"><br />
+			Avikalp Gupta
+		</div>
+		<p>Innovating at the intersection of technology and social impact</p>
+		<div class="footer-social">
+			<a href="https://twitter.com/AvikalpGupta"><i class="fab fa-twitter"></i></a>
+			<a href="https://github.com/avikalpg"><i class="fab fa-github"></i></a>
+			<a href="https://www.linkedin.com/in/avikalp-gupta"><i class="fab fa-linkedin"></i></a>
+			<a href="https://avikalpgupta.medium.com/"><i class="fab fa-medium"></i></a>
+			<a href="https://defcon.social/@avikalp"><i class="fab fa-mastodon"></i></a>
+		</div>
+		<a href="/archive" class="archive"><i class="fas fa-archive"></i>archive</a>
+	</footer>
+
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPXD79N14E"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="index.js"></script>
 </body>
+
 </html>

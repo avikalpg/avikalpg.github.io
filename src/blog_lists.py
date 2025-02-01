@@ -55,21 +55,21 @@ def main():
     for tag in TAGS:
         htmlContent = "\n"
         for article in filter_articles[tag]:
-            htmlContent += "<div class='article'>\n"
-            htmlContent += "\t<h2><a href='" + articles_dir + article + "'>" + all_meta[article][ TITLE_LABEL ] + "</a></h2>\n"
+            htmlContent += "<a href='" + articles_dir + article + "' class='article'>\n"
+            htmlContent += "\t<h2>" + all_meta[article][ TITLE_LABEL ] + "</h2>\n"
             htmlContent += "\t<small>" + all_meta[article].get( DATE_LABEL, '' ) + "</small>\n"
             htmlContent += "\t<p>" + all_meta[article][ DESCRIPTION_LABEL ] + "</p>\n"
-            htmlContent += "</div>\n"
+            htmlContent += "</a>\n"
         with open(lists_dir + tag + ".html", 'w+') as f:
             f.write(htmlContent)
 
     htmlContent = "\n"
     for article in [article_meta[0] for article_meta in sorted_articles]: # all_articles, but sorted chronologically
-        htmlContent += "<div class='article'>\n"
-        htmlContent += "\t<h2><a href='" + articles_dir + article + "'>" + all_meta[article][ TITLE_LABEL ] + "</a></h2>\n"
+        htmlContent += "<a href='" + articles_dir + article + "' class='article'>\n"
+        htmlContent += "\t<h2>" + all_meta[article][ TITLE_LABEL ] + "</h2>\n"
         htmlContent += "\t<small>" + all_meta[article].get( DATE_LABEL, '' ) + "</small>\n"
         htmlContent += "\t<p>" + all_meta[article][ DESCRIPTION_LABEL ] + "</p>\n"
-        htmlContent += "</div>\n"
+        htmlContent += "</a>\n"
     with open(lists_dir + "all.html", 'w+') as f:
         f.write(htmlContent)
 

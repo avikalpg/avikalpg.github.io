@@ -1,73 +1,176 @@
-$(document).ready(function(){
-	var blogsFolder = './blog/';
-
+$(document).ready(function () {
 	// Start Google Analytics
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	window.dataLayer = window.dataLayer || [];
+	function gtag() { dataLayer.push(arguments); }
+	gtag('js', new Date());
 
-	ga('create', 'UA-78761399-1', 'auto');
-	ga('send', 'pageview');
+	gtag('config', 'G-QPXD79N14E');
 	// End Google Analytics
 
 	var base_folder = window.location.href.substr(0, window.location.href.lastIndexOf("\/"));
-	$.get( base_folder + "/list_pages/all.html", function( htmlContent ) {
-		$("div#content").html(htmlContent);
-	});
 
-	$("div#menu a.tech").click(function(){
-		$.get( base_folder + "/list_pages/tec.html", function( htmlContent ) {
-			$("div#content").html(htmlContent);
+	// Centralized content loading function
+	function loadBlogContent(category) {
+		let categoryMap = {
+			'tech': 'tec',
+			'art': 'art',
+			'fit': 'fit',
+			'entrepreneurship': 'ent',
+			'sdg': 'sdg',
+			'all': 'all'
+		};
+
+		let fileName = categoryMap[category] + '.html';
+		$.get(base_folder + "/list_pages/" + fileName, function (htmlContent) {
+			// Restore the original page title when returning to blog list
+			document.title = window.originalPageTitle || 'Avikalp Gupta | Blog';
+
+			$("section#content").html(htmlContent);
+
+			// Add click event for individual articles
+			$("section#content .article").on('click', function (e) {
+				e.preventDefault();
+				let articleUrl = $(this).attr('href');
+				loadArticleContent(articleUrl, category);
+			});
+
+			// Track page view for specific category
+			gtag('event', 'blog_list_view', {
+				'page_title': category + ' Blog',
+				'page_path': '/blog/' + category
+			});
+		}).fail(function () {
+			console.error("Failed to load blog content for category: " + category);
 		});
+	}
 
-		ga('create', 'UA-78761399-1', 'auto', 'techBlog');
-		ga('send', 'pageview');
-	});
+	// Function to load individual article content
+	function loadArticleContent(articleUrl, category) {
+		// Store the original page title globally if not already stored
+		window.originalPageTitle = window.originalPageTitle || document.title;
 
-	$("div#menu a.art").click(function(){
-		$.get( base_folder + "/list_pages/art.html", function( htmlContent ) {
-			$("div#content").html(htmlContent);
+		$.get(articleUrl, function (articleHtml) {
+			// Create a container for the article with a back button
+			let articleContainer = $('<div class="article-full-view"></div>');
+			let backButton = $('<button class="back-to-list">← Back to Articles</button>');
+
+			backButton.on('click', function () {
+				loadBlogContent(category);  // Default back to all articles
+			});
+
+			// Create a temporary div to manipulate HTML
+			let tempDiv = $('<div>').html(articleHtml);
+
+			// Try to extract the meta name tag for the title
+			let metaNameTitle = tempDiv.find('meta[name="title"]').attr('content') ||
+				tempDiv.find('meta[property="og:title"]').attr('content') ||
+				tempDiv.find('h1').first().text() ||
+				tempDiv.find('h2').first().text() ||
+				'Article';
+
+			// Update page title
+			document.title = metaNameTitle + " | Avikalp Gupta's Blog";
+
+			// Function to rewrite local resource paths
+			function rewriteResourcePath(originalPath) {
+				// If it's an absolute path or external URL, return as is
+				if (originalPath.startsWith('http') || originalPath.startsWith('//') || originalPath.startsWith('/')) {
+					return originalPath;
+				}
+
+				// Determine the base path of the article
+				let articleBasePath = articleUrl.substring(0, articleUrl.lastIndexOf('/') + 1);
+
+				// Construct the full path
+				return articleBasePath + originalPath;
+			}
+
+			// Rewrite image sources
+			tempDiv.find('img').each(function () {
+				let originalSrc = $(this).attr('src');
+				if (originalSrc) {
+					$(this).attr('src', rewriteResourcePath(originalSrc));
+				}
+			});
+
+			// Rewrite anchor href for local links
+			tempDiv.find('a').each(function () {
+				let originalHref = $(this).attr('href');
+				if (originalHref && !originalHref.startsWith('http') && !originalHref.startsWith('#')) {
+					$(this).attr('href', rewriteResourcePath(originalHref));
+				}
+			});
+
+			// Rewrite source for audio/video elements
+			tempDiv.find('source').each(function () {
+				let originalSrc = $(this).attr('src');
+				if (originalSrc) {
+					$(this).attr('src', rewriteResourcePath(originalSrc));
+				}
+			});
+
+			// Append back button and article content
+			articleContainer.append(backButton);
+			articleContainer.append(tempDiv.html());
+
+			$("section#content").html(articleContainer);
+
+			// Send page view event to Google Analytics
+			gtag('event', 'blog_article_view', {
+				'page_title': metaNameTitle,
+				'page_path': articleUrl
+			});
+		}).fail(function () {
+			console.error("Failed to load article: " + articleUrl);
 		});
+	}
 
-		ga('create', 'UA-78761399-1', 'auto', 'artBlog');
-		ga('send', 'pageview');
+	// Event delegation for menu items
+	$("#menu").on('click', 'li', function () {
+		let category = $(this).data('category');
+		loadBlogContent(category);
+
+		// Add active state to clicked menu item
+		$("#menu li").removeClass('active');
+		$(this).addClass('active');
 	});
 
-	$("div#menu a.fit").click(function(){
-		$.get( base_folder + "/list_pages/fit.html", function( htmlContent ) {
-			$("div#content").html(htmlContent);
-		});
+	// Initial load of all articles
+	loadBlogContent('all');
+	$("#menu li[data-category='all']").addClass('active');
 
-		ga('create', 'UA-78761399-1', 'auto', 'fitBlog');
-		ga('send', 'pageview');
+	// Modal Functionality
+	function openContactModal() {
+		$('#contact-modal').fadeIn(300);
+	}
+
+	function closeContactModal() {
+		$('#contact-modal').fadeOut(300);
+	}
+
+	// Attach modal functions to global scope
+	window.openContactModal = openContactModal;
+	window.closeContactModal = closeContactModal;
+
+	function toggleMenu() {
+		const navMenu = document.querySelector('.nav-menu');
+		const hamburger = document.querySelector('.hamburger-menu');
+
+		navMenu.classList.toggle('active');
+	}
+
+	// Close menu when clicking outside
+	document.addEventListener('click', function (event) {
+		const navMenu = document.querySelector('.nav-menu');
+		const hamburger = document.querySelector('.hamburger-menu');
+
+		if (!navMenu.contains(event.target) &&
+			!hamburger.contains(event.target) &&
+			navMenu.classList.contains('active')) {
+			navMenu.classList.remove('active');
+			hamburger.classList.remove('open');
+		}
 	});
 
-	$("div#menu a.entrepreneurship").click(function(){
-		$.get( base_folder + "/list_pages/ent.html", function( htmlContent ) {
-			$("div#content").html(htmlContent);
-		});
-
-		ga('create', 'UA-78761399-1', 'auto', 'entrepreneurBlog');
-		ga('send', 'pageview');
-	});
-
-	$("div#menu a.sdg").click(function(){
-		$.get( base_folder + "/list_pages/sdg.html", function( htmlContent ) {
-			$("div#content").html(htmlContent);
-		});
-
-		ga('create', 'UA-78761399-1', 'auto', 'sdgBlog');
-		ga('send', 'pageview');
-	});
-
-	$("div#menu a.all").click(function(){
-		$.get( base_folder + "/list_pages/all.html", function( htmlContent ) {
-			$("div#content").html(htmlContent);
-		});
-
-		ga('create', 'UA-78761399-1', 'auto');
-		ga('send', 'pageview');
-	});
-
+	window.toggleMenu = toggleMenu;
 });

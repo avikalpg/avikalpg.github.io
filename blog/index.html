@@ -1,0 +1,89 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Avikalp Gupta | Blog</title>
+	<link rel="shortcut icon" href="../images/favicon.ico">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel="stylesheet" href="blog_layout.css" />
+	<link rel="stylesheet" href="article_styles.css" />
+
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-QPXD79N14E"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="blog.js"></script>
+</head>
+
+<body>
+	<nav>
+		<a class="logo" href="/">
+			<img src="../images/favicon.ico" alt="Avikalp Gupta Logo">
+			Avikalp Gupta
+		</a>
+		<div class="hamburger-menu" onclick="toggleMenu()">
+			<i class="fas fa-bars"></i>
+		</div>
+		<div class="nav-menu">
+			<a href="/blog" class="blog-btn">Blog</a>
+			<button class="say-hello-btn" onclick="openContactModal()">Say Hello</button>
+		</div>
+	</nav>
+
+	<main class="container">
+		<aside id="menu">
+			<ul>
+				<li data-category="tech">Technology</li>
+				<li data-category="art">Music and Art</li>
+				<li data-category="fit">Fitness</li>
+				<li data-category="entrepreneurship">Entrepreneurship</li>
+				<li data-category="sdg">Sustainability</li>
+				<li data-category="all">All Articles</li>
+			</ul>
+		</aside>
+		<section id="content">
+			<article class="article">
+				<h2>Exploring Modern Web Technologies</h2>
+				<p>Dive into the latest trends and innovations shaping the web development landscape. From progressive
+					web apps to serverless architectures, discover how cutting-edge technologies are transforming
+					digital experiences.</p>
+			</article>
+			<article class="article">
+				<h2>The Intersection of Art and Technology</h2>
+				<p>Uncover how creative minds are leveraging technology to push the boundaries of artistic expression.
+					Learn about digital art, generative design, and the fascinating world where creativity meets code.
+				</p>
+			</article>
+		</section>
+	</main>
+
+	<div id="contact-modal" class="contact-modal">
+		<div class="contact-form-container">
+			<span class="close-icon" onclick="closeContactModal()">&times;</span>
+			<h2>Get in Touch</h2>
+			<form class="contact-form" action="mailto:avikalpgupta+home@gmail.com" method="post" enctype="text/plain">
+				<input type="text" name="name" placeholder="Your Name" required>
+				<input type="email" name="email" placeholder="Your Email" required>
+				<textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+				<button type="submit">Send Message</button>
+			</form>
+		</div>
+	</div>
+
+	<footer class="footer">
+		<div class="footer-logo">
+			<img src="../images/favicon.ico" alt="Avikalp Gupta Logo"><br />
+			Avikalp Gupta
+		</div>
+		<p>Innovating at the intersection of technology and social impact</p>
+		<div class="footer-social">
+			<a href="https://twitter.com/AvikalpGupta"><i class="fab fa-twitter"></i></a>
+			<a href="https://github.com/avikalpg"><i class="fab fa-github"></i></a>
+			<a href="https://www.linkedin.com/in/avikalp-gupta"><i class="fab fa-linkedin"></i></a>
+			<a href="https://avikalpgupta.medium.com/"><i class="fab fa-medium"></i></a>
+			<a href="https://defcon.social/@avikalp"><i class="fab fa-mastodon"></i></a>
+		</div>
+		<a href="/archive" class="archive"><i class="fas fa-archive"></i>archive</a>
+	</footer>
+</body>
+
+</html>
