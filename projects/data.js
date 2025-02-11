@@ -102,7 +102,8 @@ const projectsData = {
 					text: "Get started!",
 					url: "https://typing-analyst.vercel.app"
 				}
-			]
+			],
+			featured: true
 		},
 		{
 			title: "HustlerIDE",

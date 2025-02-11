@@ -328,6 +328,43 @@ const scrollHandler = {
 	}
 };
 
+// Featured Projects Module
+const featuredProjects = {
+	createProjectCard(project) {
+		return `
+            <div class="project-card">
+                <div class="card-preview">
+                    <h3>${project.title}</h3>
+                    <p>${project.shortDescription}</p>
+                    <div class="tech-stack">
+                        ${project.techStack.map(tech => `
+                            <span class="tech-tag">${tech}</span>
+                        `).join('')}
+                    </div>
+                    <div class="project-links">
+                        ${project.links.map(link => `
+                            <a href="${link.url}" target="_blank">${link.text}</a>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+	},
+
+	init() {
+		const featuredProjectsContainer = document.querySelector('.featured-projects .projects-grid');
+		if (featuredProjectsContainer) {
+			import('./projects/data.js')
+				.then(({ projectsData }) => {
+					const featuredProjects = projectsData.projects
+						.filter(project => project.featured && project.title !== 'Vibinex');
+					featuredProjectsContainer.innerHTML = featuredProjects.map(this.createProjectCard).join('');
+				})
+				.catch(error => console.error('Error loading projects:', error));
+		}
+	}
+};
+
 // Initialize everything when document is ready
 $(document).ready(function () {
 	analytics.init();
@@ -336,4 +373,5 @@ $(document).ready(function () {
 	navigation.init();
 	profileLogos.init();
 	scrollHandler.init();
+	featuredProjects.init();
 });
