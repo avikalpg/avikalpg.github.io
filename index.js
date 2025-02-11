@@ -307,6 +307,27 @@ const profileLogos = {
 	}
 };
 
+// Scroll Module (Hero section)
+const scrollHandler = {
+	scrollToNext() {
+		const nextSection = document.querySelector('.about-me');
+		nextSection.scrollIntoView({ behavior: 'smooth' });
+	},
+
+	init() {
+		window.scrollToNextSection = this.scrollToNext;
+
+		// Hide scroll indicator when scrolled
+		window.addEventListener('scroll', () => {
+			if (window.scrollY > 100) {
+				document.body.classList.add('scrolled');
+			} else {
+				document.body.classList.remove('scrolled');
+			}
+		});
+	}
+};
+
 // Initialize everything when document is ready
 $(document).ready(function () {
 	analytics.init();
@@ -314,4 +335,5 @@ $(document).ready(function () {
 	githubCarousel.init();
 	navigation.init();
 	profileLogos.init();
+	scrollHandler.init();
 });
