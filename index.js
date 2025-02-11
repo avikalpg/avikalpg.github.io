@@ -268,7 +268,7 @@ const profileLogos = {
 	orbitStrategy: 'center', // center or offset
 
 	filterByTag(tag) {
-		const baseRadius = 150; // based on the width of profile-photo in layout.css
+		const baseRadius = 150; // based on the width of profile-photo in styles.css
 		const rotatingLogos = $('.rotating-logos');
 		rotatingLogos.empty();
 
@@ -285,7 +285,7 @@ const profileLogos = {
 
 			const rotatingLogo = `
 			<a href="${logoItem.link}" target="_blank" class="logo-item ${this.orbitStrategy}" style="--i:${idx}; --offset:${offset}; --orbit-tilt:${orbitTilt}deg; --radius:${radius}px;">
-				<img src="images/logos/${logoItem.logo}" alt="${logoItem.name}">
+				<img src="/images/logos/${logoItem.logo}" alt="${logoItem.name}">
 			</a>
 			`;
 			rotatingLogos.append(rotatingLogo);
