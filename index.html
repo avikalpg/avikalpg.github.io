@@ -6,22 +6,25 @@
 	<title>Avikalp Gupta | Entrepreneur, AI Specialist & Tech Generalist</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="shortcut icon" href="/images/favicon.ico">
 	<link rel="stylesheet" href="layout.css" />
+	<link rel="stylesheet" href="styles.css" />
+	<link rel="stylesheet" href="projects/styles.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
 	<nav>
 		<a class="logo" href="/">
-			<img src="images/favicon.ico" alt="Avikalp Gupta Logo">
+			<img src="/images/favicon.ico" alt="Avikalp Gupta Logo">
 			Avikalp Gupta
 		</a>
 		<div class="hamburger-menu" onclick="toggleMenu()">
 			<i class="fas fa-bars"></i>
 		</div>
 		<div class="nav-menu">
-			<a href="/blog" class="blog-btn">Blog</a>
+			<a href="/projects/" class="nav-btn">Projects</a>
+			<a href="/blog" class="nav-btn">Blog</a>
 			<button class="say-hello-btn" onclick="openContactModal()">Say Hello</button>
 		</div>
 	</nav>
@@ -46,11 +49,11 @@
 		<div class="about-container">
 			<div class="about-image">
 				<div class="profile-container">
-					<img src="images/profile.png" alt="Avikalp Gupta" class="profile-photo">
+					<img src="/images/profile.png" alt="Avikalp Gupta" class="profile-photo">
 					<div class="rotating-logos">
-						<div class="logo-item" style="--i:4"><img src="images/logos/vibinex.png" alt="Vibinex"></div>
-						<div class="logo-item" style="--i:5"><img src="images/logos/informed.png" alt="InforMED"></div>
-						<div class="logo-item" style="--i:0"><img src="images/logos/alokit.png" alt="Alokit"></div>
+						<div class="logo-item" style="--i:4"><img src="/images/logos/vibinex.png" alt="Vibinex"></div>
+						<div class="logo-item" style="--i:5"><img src="/images/logos/informed.png" alt="InforMED"></div>
+						<div class="logo-item" style="--i:0"><img src="/images/logos/alokit.png" alt="Alokit"></div>
 					</div>
 				</div>
 				<div class="tag-selector">
@@ -118,88 +121,16 @@
 		</div>
 	</section>
 
-	<section class="recent-work">
-		<h2>Projects</h2>
-		<div class="work-grid">
-			<div class="work-card">
-				<h3>#PUMADive AI Engine</h3>
-				<p>Built the core AI model that scored photos matching PUMA's logo for their viral campaign.</p>
-				<a href="https://academy.schoolofmarketing.co.uk/puma-india-puma-dive-campaign-innovation/"
-					target="_blank">Read about the campaign</a>
-			</div>
-			<div class="work-card">
-				<h3>Alokit.in</h3>
-				<p>Technical team building platform simplifying hiring processes</p>
-				<a href="https://alokit.in" target="_blank">Start an audition project</a>
-			</div>
-			<div class="work-card">
-				<h3>Free Time</h3>
-				<p>Tool to help you recognize the amount of time you have in your life for
-					things that you love.</p>
-				<a href="https://myfreetimeinaweek.in" target="_blank">Try it now!</a>
-			</div>
-			<div class="work-card">
-				<h3>Sudoku Helper</h3>
-				<p>A Chrome extension that helps solve Sudoku puzzles with ease.</p>
-				<a href="https://chromewebstore.google.com/detail/sudoku-solver/hbnnbafoijebdcdgicccgjmmhlabimgo"
-					target="_blank">Install on Chrome</a>
-			</div>
-			<div class="work-card">
-				<h3>GitHub Skyline</h3>
-				<p>A web application that visualizes your GitHub contributions over time.</p>
-				<a href="https://gitskyline.vercel.app" target="_blank">Try it now!</a>
-			</div>
-			<div class="work-card">
-				<h3>Typing Analyst</h3>
-				<p>A tool that analyzes your typing speed and accuracy to help you improve.</p>
-				<a href="https://typing-analyst.vercel.app" target="_blank">Get started!</a>
-			</div>
-			<div class="work-card">
-				<h3>HustlerIDE</h3>
-				<p>A Visual Studio Code extension that enhances your coding experience.</p>
-				<a href="https://marketplace.visualstudio.com/items?itemName=vibinex.hustler" target="_blank">Install
-					now!</a>
-			</div>
-			<div class="work-card">
-				<h3>Poker Bot-Arena</h3>
-				<p>Converted a project that let's you practice Poker with friends into a project that let's you practice
-					Poker with bots.</p>
-				<a href="https://github.com/avikalpg/poker-api" target="_blank">Source code</a>
-			</div>
-			<div class="work-card">
-				<h3>Visual guidance for 3-dof robotic arm</h3>
-				<p>Visualizing 3D robotic motion: Using cameras to map collision-free paths for articulated arms,
-					blending robotics and computer vision</p>
-				<a href="/archive/cs498a/FinalReport.pdf" target="_blank">Report</a>
-			</div>
-			<div class="work-card">
-				<h3>Car sim in C++</h3>
-				<p>A car simulation created using the open-GL library (intended to be a game)</p>
-				<a href="https://github.com/avikalpg/Graphics" target="_blank">Download & Run</a>
-			</div>
-			<div class="work-card">
-				<h3>Indian Voting Assistant</h3>
-				<p>A personalised helper for voters in Indian Elections for only viewing information relevant to them
-					for casting a vote.</p>
-				<a href="https://github.com/avikalpg/IndianVotingAssistant" target="_blank">Source code (WIP)</a>
-			</div>
-			<div class="work-card">
-				<h3>Course Helper</h3>
-				<p>An Android app to guide IIT Kanpur students in selecting the right courses, tracking credits, and
-					optimizing their academic journey with ease</p>
-				<a href="/archive/cs654/project/helper-cs654a-project.pdf" target="_blank">Report</a>
-			</div>
-			<div class="work-card">
-				<h3>Pristine: IoT garbage tracking</h3>
-				<p>An Android app that tracks the location of lo-tech SIM-enabled plastic boxes using just the tower id
-					sent to it as an SMS.</p>
-				<a href="https://github.com/avikalpg/Pristine/" target="_blank">Source code</a>
-			</div>
-			<div class="work-card">
-				<h3>Games: Fingersss, Othello, Two cars</h3>
-				<p>Open-source productivity tools for personal growth</p>
-				<!-- <a href="" target="_blank">Try it now!</a> -->
-			</div>
+	<section class="featured-projects">
+		<h2>Featured Projects</h2>
+		<div class="projects-grid">
+			<!-- This will be populated by JavaScript -->
+		</div>
+		<div class="view-all-projects">
+			<a href="/projects/" class="view-all-btn">
+				View All Projects
+				<i class="fas fa-arrow-right"></i>
+			</a>
 		</div>
 	</section>
 
@@ -269,7 +200,7 @@
 
 	<footer class="footer">
 		<div class="footer-logo">
-			<img src="images/favicon.ico" alt="Avikalp Gupta Logo"><br />
+			<img src="/images/favicon.ico" alt="Avikalp Gupta Logo"><br />
 			Avikalp Gupta
 		</div>
 		<p>Innovating at the intersection of technology and social impact</p>

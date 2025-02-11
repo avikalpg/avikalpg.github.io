@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Projects | Avikalp Gupta</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" href="/images/favicon.ico">
+	<link rel="stylesheet" href="styles.css" />
+	<link rel="stylesheet" href="../layout.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+	<!-- Reuse your existing nav -->
+	<nav>
+		<a class="logo" href="/">
+			<img src="/images/favicon.ico" alt="Avikalp Gupta Logo">
+			Avikalp Gupta
+		</a>
+		<div class="hamburger-menu" onclick="toggleMenu()">
+			<i class="fas fa-bars"></i>
+		</div>
+		<div class="nav-menu">
+			<a href="/projects/" class="nav-btn">Projects</a>
+			<a href="/blog" class="nav-btn">Blog</a>
+			<button class="say-hello-btn" onclick="openContactModal()">Say Hello</button>
+		</div>
+	</nav>
+
+	<main class="projects-container">
+		<header class="projects-header">
+			<h1>My Projects</h1>
+			<div class="projects-filters">
+				<button class="filter-btn active" data-filter="all">All</button>
+				<button class="filter-btn" data-filter="ai-ml">AI & ML</button>
+				<button class="filter-btn" data-filter="dev-tools">Developer Tools</button>
+				<button class="filter-btn" data-filter="startups">Startups</button>
+				<button class="filter-btn" data-filter="social">Social Impact</button>
+				<button class="filter-btn" data-filter="games">Games & Sims</button>
+			</div>
+		</header>
+
+		<section class="category-section" data-category="ai-ml">
+			<h2>AI & Machine Learning</h2>
+			<div class="projects-grid">
+				<div class="project-card expandable">
+					<div class="card-preview">
+						<h3>PUMA Dive AI Engine</h3>
+						<p>Built the core AI model that scored photos matching PUMA's logo for their viral campaign.</p>
+						<button class="expand-btn">Learn More</button>
+					</div>
+					<div class="card-details">
+						<div class="details-content">
+							<img src="path/to/puma-dive-image.jpg" alt="PUMA Dive Campaign">
+							<div class="tech-stack">
+								<span class="tech-tag">Computer Vision</span>
+								<span class="tech-tag">Deep Learning</span>
+								<span class="tech-tag">Python</span>
+							</div>
+							<h4>Project Overview</h4>
+							<p>Developed an AI engine that analyzed user-submitted photos to detect and score their
+								resemblance to PUMA's iconic logo leap...</p>
+							<div class="project-links">
+								<a href="https://academy.schoolofmarketing.co.uk/puma-india-puma-dive-campaign-innovation/"
+									target="_blank">Case Study</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Add other AI & ML projects similarly -->
+			</div>
+		</section>
+
+		<!-- Repeat similar sections for other categories -->
+	</main>
+
+	<section class="cta-section">
+		<h2>Interested in Collaborating?</h2>
+		<p>I'm always open to discussing innovative projects and opportunities.</p>
+		<button class="say-hello-btn" onclick="openContactModal()">
+			<i class="far fa-comments" style="margin-right: 5px;"></i>Start a Conversation
+		</button>
+	</section>
+
+	<div id="contact-modal" class="contact-modal">
+		<div class="contact-form-container">
+			<span class="close-icon" onclick="closeContactModal()">&times;</span>
+			<h2>Get in Touch</h2>
+			<form class="contact-form" action="mailto:avikalpgupta@gmail.com" method="post" enctype="text/plain">
+				<input type="text" name="name" placeholder="Your Name" required>
+				<input type="email" name="email" placeholder="Your Email" required>
+				<textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+				<button type="submit">Send Message</button>
+			</form>
+		</div>
+	</div>
+
+	<footer class="footer">
+		<div class="footer-logo">
+			<img src="/images/favicon.ico" alt="Avikalp Gupta Logo"><br />
+			Avikalp Gupta
+		</div>
+		<p>Innovating at the intersection of technology and social impact</p>
+		<div class="footer-social">
+			<a href="https://twitter.com/AvikalpGupta"><i class="fab fa-twitter"></i></a>
+			<a href="https://github.com/avikalpg"><i class="fab fa-github"></i></a>
+			<a href="https://www.linkedin.com/in/avikalp-gupta"><i class="fab fa-linkedin"></i></a>
+			<a href="https://avikalpgupta.medium.com/"><i class="fab fa-medium"></i></a>
+			<a href="https://defcon.social/@avikalp"><i class="fab fa-mastodon"></i></a>
+		</div>
+		<a href="/archive" class="archive"><i class="fas fa-archive"></i>archive</a>
+	</footer>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type="module" src="script.js"></script>
+</body>
+
+</html>
