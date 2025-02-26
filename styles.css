@@ -9,7 +9,7 @@
 
 .hero-content {
 	position: absolute;
-	top: 0;
+	top: 80px;
 	left: 50%;
 	max-width: 800px;
 	padding: 6rem 2rem;

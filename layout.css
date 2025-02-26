@@ -4,6 +4,7 @@
 	--text-color: #333;
 	--subtext-color: #666;
 	--accent-color: #5a67d8;
+	--light-accent: #e6e9f0;
 }
 
 * {
@@ -46,7 +47,6 @@ body {
 	background-color: var(--secondary-background);
 	color: var(--text-color);
 	line-height: 1.6;
-	padding-top: 80px;
 	min-height: 100vh;
 	position: relative;
 }
@@ -277,4 +277,31 @@ nav .logo img {
 .archive i {
 	margin-right: 0.5em;
 	font-size: 0.8em;
+}
+
+.views-count {
+	position: absolute;
+	font-size: 0.5em;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	text-align: right;
+	padding-right: 10px;
+}
+
+.views-count .iconAndCount {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.views-count svg {
+	margin-right: 0.5em;
+	fill: gray;
+	height: 1em;
+}
+
+.views-count a {
+	text-decoration: none;
+	color: gray;
 }
