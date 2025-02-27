@@ -4,6 +4,8 @@
 	--article-heading-color: #1a1a1a;
 	--article-border-color: #eaecef;
 	--article-code-bg: #f4f4f4;
+	--article-like-color: #ff6347;
+	--accent-color: #5a67d8;
 }
 
 .article-full-view {
@@ -111,6 +113,13 @@
 	text-decoration: underline;
 }
 
+.article-controls {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 20px 0;
+}
+
 .back-to-list {
 	text-decoration: none;
 	position: sticky;
@@ -124,11 +133,70 @@
 	cursor: pointer;
 	transition: all 0.3s ease;
 	font-size: 1em;
+	flex-grow: 1;
 }
 
 .back-to-list:hover {
 	color: var(--accent-color);
 	transform: translateX(-10px);
+}
+
+.viewCounter {
+	display: flex;
+	align-items: center;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 1em;
+	color: var(--article-text-color);
+}
+
+.viewCounter svg {
+	margin-right: 8px;
+	width: 24px;
+	height: 24px;
+	fill: currentColor;
+	pointer-events: none;
+}
+
+.likeButton {
+	display: flex;
+	align-items: center;
+	margin-left: 10px;
+	margin-right: 10px;
+	cursor: pointer;
+	border: none;
+	background: transparent;
+	font-size: 1em;
+	color: var(--article-text-color);
+	transition: color 0.3s ease;
+	border: var(--article-like-color) 1px solid;
+	border-radius: 10px;
+	padding: 5px 10px;
+}
+
+.likeButton svg {
+	margin-right: 8px;
+	width: 24px;
+	height: 24px;
+	fill: none;
+	stroke: var(--article-like-color);
+	stroke-width: 40px;
+	pointer-events: none;
+}
+
+.likeButton:hover {
+	color: var(--accent-color);
+}
+
+.likeButton.liked {
+	color: var(--accent-like-color);
+	cursor: not-allowed;
+	border: none;
+}
+
+.likeButton.liked svg {
+	fill: var(--article-like-color);
+	transform: scale(1.2);
 }
 
 /* Responsive adjustments */

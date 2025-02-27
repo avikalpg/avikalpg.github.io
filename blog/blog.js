@@ -114,6 +114,12 @@ $(document).ready(function () {
 			articleContainer.append(tempDiv.html());
 
 			$("section#content").html(articleContainer);
+			// Run the addCounterElements function from articles.js
+			if (typeof addCounterElements === 'function') {
+				addCounterElements();
+			} else {
+				console.error("addCounterElements function is not defined.");
+			}
 
 			// Send page view event to Google Analytics
 			gtag('event', 'blog_article_view', {
