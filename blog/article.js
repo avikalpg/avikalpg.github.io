@@ -15,10 +15,25 @@ function fillDateFromMetaToBody() {
 	}
 }
 
+function createArticleIdFromMeta() {
+	var dateMeta = document.querySelector('meta[name="date"]');
+	var titleMeta = document.querySelector('meta[name="title"]');
+	var articleId = '';
+
+	if (dateMeta && titleMeta) {
+		var date = dateMeta.getAttribute('content').replace(/\s+/g, '-').toLowerCase();
+		var title = titleMeta.getAttribute('content').replace(/\s+/g, '-').toLowerCase();
+		articleId = `${date}-${title}`;
+	} else {
+		articleId = 'default-article-id';
+	}
+	return articleId;
+}
+
 /** Add view counter and like button dynamically */
 function addCounterElements() {
 	// Get the article identifier from the filename or another unique attribute
-	var articleId = window.location.pathname.split('/').pop().split('.').shift();
+	var articleId = createArticleIdFromMeta();
 
 	// Create view counter element
 	var viewCounter = document.createElement('div');
@@ -50,6 +65,10 @@ function addCounterElements() {
 		.then(data => {
 			console.log(`Views response: ${JSON.stringify(data)}`);
 			viewCounter.innerHTML = `${data.iconSvg} ${data.value}`;
+		})
+		.catch(error => {
+			console.error(`Failed to fetch view count: ${error}`);
+			viewCounter.innerHTML = 'Error';
 		});
 
 	// Fetch and update like count
@@ -58,6 +77,10 @@ function addCounterElements() {
 		.then(data => {
 			console.log(`Votes response: ${JSON.stringify(data)}`);
 			likeButton.innerHTML = `${data.iconSvg} ${data.value}`;
+		})
+		.catch(error => {
+			console.error(`Failed to fetch like count: ${error}`);
+			likeButton.innerHTML = 'Error';
 		});
 
 	// Add event listener to like button
@@ -71,6 +94,11 @@ function addCounterElements() {
 				likeButton.classList.add('liked');
 				localStorage.setItem(`blogvote_${articleId}`, 'liked');
 				likeButton.title = 'Liked! Thanks <3';
+			})
+			.catch(error => {
+				console.error(`Failed to fetch like count: ${error}`);
+				alert('Failed to register your like. Please try again.');
+				likeButton.title = 'Like this article';
 			});
 	});
 }
