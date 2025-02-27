@@ -11,6 +11,7 @@ TAGS_LABEL = "tags"
 IMAGE_LABEL = "image"
 DESCRIPTION_LABEL = "description"
 DATE_LABEL = "date"
+ARTICLE_ID_LABEL = "article-id"
 
 articles_dir = "../blog/articles/"
 lists_dir = "../blog/list_pages/"
@@ -57,7 +58,11 @@ def main():
         for article in filter_articles[tag]:
             htmlContent += "<a href='" + articles_dir + article + "' class='article'>\n"
             htmlContent += "\t<h2>" + all_meta[article][ TITLE_LABEL ] + "</h2>\n"
-            htmlContent += "\t<small>" + all_meta[article].get( DATE_LABEL, '' ) + "</small>\n"
+            htmlContent += "\t<small>\n"
+            htmlContent += f"\t\t<span class='list-page-article-publish-date'>{all_meta[article].get( DATE_LABEL, '' )}</span>\n"
+            htmlContent += f"\t\t<div class='counterapi' ns='avikalpg.github.io' title='Views' key='blogview_{all_meta[article].get( ARTICLE_ID_LABEL, 'default-article-id' )}' noCss='true' noLink='true' abbreviate='true' action='views' readOnly='true'></div>&nbsp;\n"
+            htmlContent += f"\t\t<div class='counterapi' ns='avikalpg.github.io' title='Likes' key='blogvote_{all_meta[article].get( ARTICLE_ID_LABEL, 'default-article-id' )}' icon='heart' noCss='true' noLink='true' abbreviate='true' action='vote' readOnly='true'></div>\n"
+            htmlContent += "\t</small>\n"
             htmlContent += "\t<p>" + all_meta[article][ DESCRIPTION_LABEL ] + "</p>\n"
             htmlContent += "</a>\n"
         with open(lists_dir + tag + ".html", 'w+') as f:
@@ -67,7 +72,11 @@ def main():
     for article in [article_meta[0] for article_meta in sorted_articles]: # all_articles, but sorted chronologically
         htmlContent += "<a href='" + articles_dir + article + "' class='article'>\n"
         htmlContent += "\t<h2>" + all_meta[article][ TITLE_LABEL ] + "</h2>\n"
-        htmlContent += "\t<small>" + all_meta[article].get( DATE_LABEL, '' ) + "</small>\n"
+        htmlContent += "\t<small>\n"
+        htmlContent += f"\t\t<span class='list-page-article-publish-date'>{all_meta[article].get( DATE_LABEL, '' )}</span>\n"
+        htmlContent += f"\t\t<div class='counterapi' ns='avikalpg.github.io' title='Views' key='blogview_{all_meta[article].get( ARTICLE_ID_LABEL, 'default-article-id' )}' noCss='true' noLink='true' abbreviate='true' action='views' readOnly='true'></div>&nbsp;\n"
+        htmlContent += f"\t\t<div class='counterapi' ns='avikalpg.github.io' title='Likes' key='blogvote_{all_meta[article].get( ARTICLE_ID_LABEL, 'default-article-id' )}' icon='heart' noCss='true' noLink='true' abbreviate='true' action='vote' readOnly='true'></div>\n"
+        htmlContent += "\t</small>\n"
         htmlContent += "\t<p>" + all_meta[article][ DESCRIPTION_LABEL ] + "</p>\n"
         htmlContent += "</a>\n"
     with open(lists_dir + "all.html", 'w+') as f:
