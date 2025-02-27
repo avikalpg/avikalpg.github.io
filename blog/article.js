@@ -22,7 +22,7 @@ function createArticleIdFromMeta() {
 
 	if (dateMeta && titleMeta) {
 		var date = dateMeta.getAttribute('content').replace(/\s+/g, '-').toLowerCase();
-		var title = titleMeta.getAttribute('content').replace(/\s+/g, '-').toLowerCase();
+		var title = titleMeta.getAttribute('content').replace(/[^a-z0-9\s]/gi, '').replace(/\s+/g, '-').toLowerCase();
 		articleId = `${date}-${title}`;
 	} else {
 		articleId = 'default-article-id';
