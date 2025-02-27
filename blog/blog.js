@@ -1,3 +1,11 @@
+function loadCounterAPIScript(callback) {
+	var script = document.createElement('script');
+	script.src = 'https://counterapi.com/c.js';
+	script.async = true;
+	script.onload = callback;
+	document.head.appendChild(script);
+}
+
 $(document).ready(function () {
 	// Start Google Analytics
 	window.dataLayer = window.dataLayer || [];
@@ -38,6 +46,11 @@ $(document).ready(function () {
 			gtag('event', 'blog_list_view', {
 				'page_title': category + ' Blog',
 				'page_path': '/blog/' + category
+			});
+
+			// Load the counter API script
+			loadCounterAPIScript(function () {
+				console.debug("Counter API script loaded.");
 			});
 		}).fail(function () {
 			console.error("Failed to load blog content for category: " + category);
@@ -125,6 +138,11 @@ $(document).ready(function () {
 			gtag('event', 'blog_article_view', {
 				'page_title': metaNameTitle,
 				'page_path': articleUrl
+			});
+
+			// Load the counter API script
+			loadCounterAPIScript(function () {
+				console.debug("Counter API script loaded.");
 			});
 		}).fail(function () {
 			console.error("Failed to load article: " + articleUrl);
