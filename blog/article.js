@@ -47,7 +47,7 @@ function addCounterElements() {
 	}
 
 	// Fetch and update view count
-	fetch(`https://counterapi.com/api/avikalpg.github.io/view/blogview_${articleId}`)
+	fetch(`https://counterapi.com/api/avikalpg.github.io/views/blogview_${articleId}`)
 		.then(response => response.json())
 		.then(data => {
 			viewCounter.innerHTML = `${data.iconSvg} ${data.value}`;
