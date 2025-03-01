@@ -25,15 +25,26 @@
 	</p>
 
 	<h3>The Bottleneck Reality</h3>
-	<p>Over the past month, I've had eye-opening conversations with dozens of engineers from Series B and Series C
+	<p>Over the past few months, I've had eye-opening conversations with dozens of engineers from Series-B and Series-C
 		startups. As the founder of Vibinex, I'm naturally curious about their code review processes, especially when
 		they mention it's a pain point.</p>
-	<p>A common pattern emerges: their most valuable engineers are spending significant time reviewing pull requests
-		instead of building new features. This bottleneck slows down the entire development cycle, leading to product
-		delays and frustration across teams.</p>
-	<p>To address this challenge, many have turned to AI-powered code review tools like CodeRabbit, CodeAnt, Greptile,
-		or Ellipsis, hoping to accelerate their review process.</p>
-	<p><strong>[VISUAL AID 1: Insert workflow diagram showing traditional PR review flow]</strong></p>
+	<p>A common pattern emerges: their most valuable engineers are spending significant time reviewing pull requests, or
+		worse, fixing issues in previously shipped features, instead of building new features. This bottleneck slows
+		down the entire development cycle, leading to product delays and frustration across teams.</p>
+	<pre class="mermaid">
+		flowchart LR
+		start((("`**Author Raises pull request**`"))) --> ci["`CI/CD/CT`"]
+		ci --> r1["Author makes fixes for automated feedback & requests human review"]
+		r1 --> r2{"Reviewer reads issue description, reads code changes line-by-line, identifies bugs/issues & tests locally and provides feedback"}
+		r2 --> |Requests changes|f1["Author makes fixes"]
+		r2 --> |Approves|last((("`**PR merged**`")))
+		f1 --> r2
+	</pre>
+	<center style="margin-top: -20px;"><strong>Tradition PR review flow</strong></center>
+	<p>To address this challenge, many have turned to AI-powered code review tools like <a
+			href="https://coderabbit.ai">CodeRabbit</a>, <a href="https://codeant.ai">CodeAnt</a>, <a
+			href="https://greptile.com">Greptile</a>, or <a href="https://www.ellipsis.dev/">Ellipsis</a>, hoping to
+		accelerate their review process.</p>
 
 	<h3>The AI Tool Adoption Paradox</h3>
 	<p>When I ask these teams how they evaluated these tools before purchase, they invariably mention the quality of PR
@@ -44,12 +55,20 @@
 	<q>Well, I get a Slack notification with the PR link, open the PR, look at the AI comments, but then I still
 		need to go through the code myself to understand the changes and their implications.</q>
 	<p>They're still performing every step they did before adopting these tools.</p>
-	<p><strong>[VISUAL AID 2: Insert time allocation chart showing where reviewers spend their time (50-70%
-			understanding changes, ~30% writing comments, 10% iterations)]</strong></p>
-	<div>
-		<canvas id="pieChart-PR-review-time" width="600" height="400"></canvas>
-	</div>
-
+	<pre class="mermaid">
+		flowchart LR
+		start_((("`**Author Raises pull request**`"))) --> ci_["`CI/CD/CT &
+		 **AI Code Review**`"]:::highlighted
+		ci_ --> r1_["Author makes fixes for automated feedback & requests human review"]
+		r1_ --> r2_{"Reviewer reads issue description & **AI comments**, reads code changes line-by-line, identifies bugs/issues & tests locally and
+		provides feedback"}:::slowed
+		r2_ --> |Requests changes|f1_["Author makes fixes"]
+		r2_ --> |Approves|last_((("`**PR merged**`")))
+		f1_ --> r2_
+		classDef highlighted fill:#c0ffcb,stroke:#25a500,stroke-width:2px,color:#000000
+		classDef slowed fill:#ffe0e0,stroke:#d95050,stroke-width:2px,color:#000000
+	</pre>
+	<center style="margin-top: -20px;"><strong>PR review flow with AI code review tools</strong></center>
 
 	<h3>The Misalignment</h3>
 	<p>This reveals a fundamental misalignment between expectations and reality. Teams purchase these tools hoping to
@@ -70,7 +89,8 @@
 		<li>Providing educational feedback to developers</li>
 		<li>Enforcing style guidelines and best practices</li>
 	</ul>
-	<p>But they don't fundamentally change how reviewers experience the review process. Reviewers still need to:</p>
+	<p>But they don't fundamentally change how reviewers experience the review process. Reviewers still need to read the
+		code changes <i>line-by-line</i> to:</p>
 	<ul>
 		<li>Understand what the code is trying to accomplish</li>
 		<li>Identify business logic issues that AI can't catch</li>
@@ -79,6 +99,9 @@
 	</ul>
 	<p>When engineers tell me they've adopted AI code review tools to "save time on reviews," there's often confusion
 		about which side of the equation they're optimizing for.</p>
+	<div>
+		<canvas id="pieChart-PR-review-time" width="600" height="400"></canvas>
+	</div>
 
 	<h3>The Complementary Approach</h3>
 	<p>I used to emphasize that Vibinex wasn't competing with these AI code review tools. But I've changed my
@@ -92,6 +115,21 @@
 		<li>Author-focused tools ensure higher quality code enters the review process</li>
 		<li>Reviewer-focused tools accelerate the human review that remains essential</li>
 	</ul>
+	<pre class="mermaid">
+			flowchart LR
+			start_((("`**Author Raises pull request**`"))) --> ci_["`CI/CD/CT &
+				**AI Code Review**`"]:::highlighted
+			ci_ --> r1_["Author makes fixes for automated feedback & requests human review"]
+			r1_ --> r2_{"`⏩
+			Reviewer **quickly understands logic & design changes** to identify issues and provide feedback`"}:::highlighted
+			r2_ --> |Requests changes|f1_["Author makes fixes"]
+			r2_ --> |Approves|last_((("`**PR merged**`")))
+			f1_ --> r2_
+			classDef highlighted fill:#90EE90
+		</pre>
+	<center style="margin-top: -20px;">
+		<strong>PR review flow with AI code review & code-review UI tools</strong>
+	</center>
 
 	<h3>Looking Forward</h3>
 	<p>As development teams face increasing pressure to ship faster while maintaining quality, examining the entire PR
@@ -111,7 +149,7 @@
 
 	<p>I'd love to hear about your experiences with code review processes and tools. What challenges is your team
 		facing, and what solutions have you found effective? Connect with me on <a
-			href="https://www.linkedin.com/in/your-profile">LinkedIn</a> or check out <a
+			href="https://www.linkedin.com/in/avikalp-gupta">LinkedIn</a> or check out <a
 			href="https://vibinex.com">Vibinex</a> if you're interested in solutions specifically designed for the
 		reviewer experience.</p>
 
@@ -122,6 +160,10 @@
 <script src="../article.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+<script type="module">
+	import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+	mermaid.initialize({ startOnLoad: true });
+</script>
 <script>
 	const ctx = document.getElementById('pieChart-PR-review-time');
 
@@ -136,6 +178,12 @@
 			}]
 		},
 		options: {
+			title: {
+				display: true,
+				text: 'Breakdown of Time Spent on Pull Request Reviews',
+				fontSize: 16,
+			},
+			responsive: true,
 			layout: {
 				padding: 20,
 			},
@@ -153,6 +201,14 @@
 						});
 						let percentage = (value * 100 / sum).toFixed(0) + "%";
 						return percentage;
+					}
+				},
+				tooltip: {
+					callbacks: {
+						label: function (tooltipItem) {
+							let value = tooltipItem.raw || 0;
+							return ` ${value}% of time spent`;
+						}
 					}
 				}
 			}
