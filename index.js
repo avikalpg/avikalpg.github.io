@@ -235,7 +235,7 @@ const profileLogos = {
 		},
 		{
 			name: 'Stanford University',
-			logo: 'Stanford_University.webp',
+			logo: 'Stanford_University.png',
 			link: 'https://stanford.edu',
 			tags: ['alumnus']
 		},
@@ -310,8 +310,8 @@ const profileLogos = {
 // Scroll Module (Hero section)
 const scrollHandler = {
 	scrollToNext() {
-		const nextSection = document.querySelector('.about-me');
-		nextSection.scrollIntoView({ behavior: 'smooth' });
+		const nextSection = document.querySelector('#top-companies');
+		nextSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 	},
 
 	init() {
