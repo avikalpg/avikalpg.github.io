@@ -122,6 +122,22 @@ $(document).ready(function () {
 				}
 			});
 
+			// Rewrite script sources
+			tempDiv.find('script').each(function () {
+				let originalSrc = $(this).attr('src');
+				if (originalSrc) {
+					$(this).attr('src', rewriteResourcePath(originalSrc));
+				}
+			});
+
+			// Rewrite link href for stylesheets
+			tempDiv.find('link[rel="stylesheet"]').each(function () {
+				let originalHref = $(this).attr('href');
+				if (originalHref) {
+					$(this).attr('href', rewriteResourcePath(originalHref));
+				}
+			});
+
 			// Append back button and article content
 			articleContainer.append(backButton);
 			articleContainer.append(tempDiv.html());
