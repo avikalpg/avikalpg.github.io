@@ -112,6 +112,23 @@
 	object-fit: contain;
 }
 
+.logo-badge-container {
+	position: relative;
+	display: flex;
+}
+
+.logo-badge-container .badge {
+	position: absolute;
+	top: -10px;
+	right: -10px;
+	max-height: 30px;
+	max-width: 30px;
+	background-color: white;
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+	border: 1px solid white;
+}
+
 :nth-child(2).logos-container img {
 	max-height: 50px;
 	max-width: 180px;
