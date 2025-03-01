@@ -86,6 +86,36 @@
 	pointer-events: none;
 }
 
+/* Add this CSS to your styles.css file */
+.pedigree-logos {
+	text-align: center;
+	padding: 50px 0;
+	background-color: var(--secondary-background);
+}
+
+.pedigree-logos h3 {
+	font-size: 1em;
+	font-weight: 100;
+}
+
+.logos-container {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	gap: 24px;
+	margin: 24px auto;
+}
+
+.logos-container img {
+	max-height: 80px;
+	max-width: 200px;
+	object-fit: contain;
+}
+
+:nth-child(3).logos-container img {
+	max-height: 50px;
+}
+
 /* Profile section styles  */
 .about-me {
 	padding: 6rem 2rem;
