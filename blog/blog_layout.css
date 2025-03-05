@@ -129,7 +129,7 @@ main.container {
 	#menu ul li {
 		flex: 1 1 calc(33% - 10px);
 		text-align: center;
-		text-wrap: nowrap;
+		white-space: nowrap;
 		border: var(--accent-color) 1px solid;
 	}
 
