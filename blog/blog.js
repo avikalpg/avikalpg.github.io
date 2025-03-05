@@ -17,6 +17,13 @@ $(document).ready(function () {
 
 	var base_folder = window.location.href.substr(0, window.location.href.lastIndexOf("\/"));
 
+	function scrollToActiveMenuItem() {
+		const activeMenuItem = document.querySelector('#menu ul li.active');
+		if (activeMenuItem) {
+			activeMenuItem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+		}
+	}
+
 	// Centralized content loading function
 	function loadBlogContent(category) {
 		let categoryMap = {
@@ -178,6 +185,7 @@ $(document).ready(function () {
 	// Initial load of all articles
 	loadBlogContent('all');
 	$("#menu li[data-category='all']").addClass('active');
+	scrollToActiveMenuItem()
 
 	// Modal Functionality
 	function openContactModal() {
