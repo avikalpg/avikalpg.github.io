@@ -106,6 +106,24 @@ const projectsData = {
 			featured: true
 		},
 		{
+			title: "WhatsApp AI Filter",
+			shortDescription: "Filter the noise and focus on what matters in your WhatsApp groups using AI.",
+			fullDescription: "An open-source project that helps manage information overload in WhatsApp groups. It runs locally on your computer, monitoring specified groups and using AI (Perplexity AI / OpenAI) to intelligently filter messages based on your interests, notifying you about relevant discussions while filtering out the noise.",
+			techStack: ["TypeScript", "Node.js", "PM2", "Perplexity AI", "OpenAI API", "Next.js"],
+			categories: ["ai-ml", "social"],
+			links: [
+				{
+					text: "Try it now!",
+					url: "https://whatsapp-ai-filter.vercel.app"
+				},
+				{
+					text: "Source Code",
+					url: "https://github.com/avikalpg/whatsapp-ai-filter"
+				}
+			],
+			featured: true
+		},
+		{
 			title: "HustlerIDE",
 			shortDescription: "A Visual Studio Code extension that enhances your coding experience.",
 			techStack: ["TypeScript", "VS Code API"],
