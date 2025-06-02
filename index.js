@@ -263,6 +263,12 @@ const profileLogos = {
 			link: 'https://www.linkedin.com/company/ysi---young-sustainable-impact/',
 			tags: ['member', 'alumnus']
 		},
+		{
+			name: 'WhatsApp AI Filter',
+			logo: 'whatsapp-ai-filter.png',
+			link: 'https://whatsapp-ai-filter.vercel.app',
+			tags: ['proj']
+		},
 	],
 
 	orbitStrategy: 'center', // center or offset
