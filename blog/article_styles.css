@@ -133,23 +133,19 @@
 
 .back-to-list {
 	text-decoration: none;
-	position: sticky;
-	top: 20px;
-	left: -50px;
-	margin: 20px 0px;
 	background-color: transparent;
 	color: #666;
 	border: none;
-	padding: 10px;
+	padding: 10px 0;
 	cursor: pointer;
-	transition: all 0.3s ease;
-	font-size: 1em;
+	transition: color 0.3s ease, transform 0.3s ease;
+	font-size: var(--font-size-sm);
 	flex-grow: 1;
 }
 
 .back-to-list:hover {
 	color: var(--accent-color);
-	transform: translateX(-10px);
+	transform: translateX(-4px);
 }
 
 .back-to-list:focus-visible {
