@@ -2,7 +2,7 @@ main.container {
 	max-width: 1200px;
 	margin: 100px auto 50px;
 	display: flex;
-	gap: 2rem;
+	gap: 2.5rem;
 	padding: 0 1rem;
 }
 
@@ -11,7 +11,7 @@ main.container {
 	background-color: white;
 	border-radius: 12px;
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-	padding: 20px;
+	padding: 10px 28px 10px 8px;
 	height: fit-content;
 	position: sticky;
 	top: 100px;
@@ -51,26 +51,26 @@ main.container {
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-	gap: 1.5rem;
+	gap: 2rem;
 }
 
 #content .article {
 	background-color: white;
 	border-radius: 12px;
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-	padding: 25px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.04);
+	padding: 30px 32px;
 	text-decoration: none;
 	color: inherit;
 	transition: all 0.3s ease;
 }
 
 #content .article:hover {
-	transform: translateY(-5px);
-	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
 #content .article h2 {
-	color: var(--accent-color);
+	font-family: var(--heading-font);
 	font-weight: 600;
 }
 
@@ -78,6 +78,7 @@ main.container {
 	margin-bottom: 15px;
 	display: flex;
 	width: 100%;
+	color: var(--subtext-color);
 
 	.list-page-article-publish-date {
 		flex-grow: 1;
@@ -89,7 +90,7 @@ main.container {
 		margin-left: 4px;
 		margin-right: 4px;
 		font-size: 1em;
-		color: var(--article-text-color);
+		color: var(--subtext-color);
 	}
 
 	.counterapi svg {
@@ -150,21 +151,3 @@ main.container {
 	}
 }
 
-.back-to-list {
-	position: sticky;
-	top: 20px;
-	left: -50px;
-	margin: 20px 0px;
-	background-color: transparent;
-	color: #666;
-	border: none;
-	padding: 10px;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	font-size: 1em;
-}
-
-.back-to-list:hover {
-	color: var(--accent-color);
-	transform: translateX(-10px);
-}
