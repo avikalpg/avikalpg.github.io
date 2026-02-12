@@ -669,6 +669,11 @@ h6 {
 	transform: translateY(-2px);
 }
 
+.view-all-btn:focus-visible {
+	outline: 2px solid var(--accent-color);
+	outline-offset: 3px;
+}
+
 .view-all-btn i {
 	transition: transform 0.3s ease;
 }

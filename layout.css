@@ -106,6 +106,12 @@ nav .logo img {
 	transform: scale(1.05);
 }
 
+.nav-btn:focus-visible {
+	outline: 2px solid var(--accent-color);
+	outline-offset: 2px;
+	background-color: var(--secondary-background);
+}
+
 .say-hello-btn {
 	background-color: white;
 	color: var(--accent-color);
@@ -120,6 +126,11 @@ nav .logo img {
 
 .say-hello-btn:hover {
 	transform: scale(1.05);
+}
+
+.say-hello-btn:focus-visible {
+	outline: 2px solid var(--accent-color);
+	outline-offset: 2px;
 }
 
 .hamburger-menu {
