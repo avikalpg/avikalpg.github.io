@@ -1,9 +1,7 @@
 function loadCounterAPIScript(callback) {
-	var script = document.createElement('script');
-	script.src = 'https://counterapi.com/c.js';
-	script.async = true;
-	script.onload = callback;
-	document.head.appendChild(script);
+	// CounterAPI (counterapi.com) has been replaced by a self-hosted Cloudflare Worker.
+	// The c.js embed script is no longer needed; article.js uses fetch() directly.
+	if (typeof callback === 'function') callback();
 }
 
 $(document).ready(function () {

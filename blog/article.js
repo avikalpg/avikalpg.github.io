@@ -47,7 +47,7 @@ function addCounterElements() {
 	}
 
 	// Fetch and update view count
-	fetch(`https://counterapi.com/api/avikalpg.github.io/views/blogview_${articleId}`)
+	fetch(`https://avikalp-counter.avikalp.workers.dev/api/avikalpg.github.io/views/blogview_${articleId}`)
 		.then(response => response.json())
 		.then(data => {
 			viewCounter.innerHTML = `${data.iconSvg} ${data.value}`;
@@ -58,7 +58,7 @@ function addCounterElements() {
 		});
 
 	// Fetch and update like count
-	fetch(`https://counterapi.com/api/avikalpg.github.io/vote/blogvote_${articleId}?readOnly=true&behavior=vote&icon=heart`)
+	fetch(`https://avikalp-counter.avikalp.workers.dev/api/avikalpg.github.io/vote/blogvote_${articleId}?readOnly=true&behavior=vote&icon=heart`)
 		.then(response => response.json())
 		.then(data => {
 			likeButton.innerHTML = `${data.iconSvg} ${data.value}`;
@@ -70,7 +70,7 @@ function addCounterElements() {
 
 	// Add event listener to like button
 	likeButton.addEventListener('click', () => {
-		fetch(`https://counterapi.com/api/avikalpg.github.io/vote/blogvote_${articleId}?behavior=vote&icon=heart`)
+		fetch(`https://avikalp-counter.avikalp.workers.dev/api/avikalpg.github.io/vote/blogvote_${articleId}?behavior=vote&icon=heart`)
 			.then(response => response.json())
 			.then(data => {
 				likeButton.innerHTML = `${data.iconSvg} ${data.value}`;
