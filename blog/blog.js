@@ -1,6 +1,10 @@
 function loadCounterAPIScript(callback) {
-	// CounterAPI (counterapi.com) has been replaced by a self-hosted Cloudflare Worker.
-	// The c.js embed script is no longer needed; article.js uses fetch() directly.
+	// CounterAPI replaced by self-hosted Cloudflare Worker (counter.avikalp.workers.dev).
+	// counter.js handles .counterapi embed divs; hydrate any in the freshly-loaded content.
+	if (typeof window.hydrateCounters === 'function') {
+		var content = document.querySelector('section#content');
+		window.hydrateCounters(content || document);
+	}
 	if (typeof callback === 'function') callback();
 }
 
