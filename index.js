@@ -132,6 +132,30 @@ const navigation = {
 const profileLogos = {
 	allLogos: [
 		{
+			name: 'Wrong by Default',
+			logo: 'wrong-by-default.ico',
+			link: 'https://wrongbydefault.com',
+			tags: ['proj']
+		},
+		{
+			name: 'BYOK Relay',
+			logo: 'byok-relay.ico',
+			link: 'https://byokrelay.com',
+			tags: ['proj']
+		},
+		{
+			name: 'Nextahalli',
+			logo: 'nextahalli.svg',
+			link: 'https://nextahalli.com',
+			tags: ['startup', 'proj']
+		},
+		{
+			name: 'Wildest AI',
+			logo: 'wildest-ai.png',
+			link: 'https://wildestai.com',
+			tags: ['startup', 'proj']
+		},
+		{
 			name: 'Alokit',
 			logo: 'Alokit.png',
 			link: 'https://alokit.in',
@@ -193,7 +217,7 @@ const profileLogos = {
 		},
 		{
 			name: 'InforMED',
-			logo: 'informed.png',
+			logo: 'InforMED.png',
 			link: 'https://www.linkedin.com/in/informed-global-002a22169',
 			tags: ['startup']
 		},
@@ -228,9 +252,9 @@ const profileLogos = {
 			tags: ['exp']
 		},
 		{
-			name: 'Git Skyline',
+			name: 'GitHub Skyline',
 			logo: 'skyline.png',
-			link: 'https://gitskyline.vercel.app',
+			link: 'https://skyline3d.in',
 			tags: ['proj']
 		},
 		{
@@ -253,7 +277,7 @@ const profileLogos = {
 		},
 		{
 			name: 'Vibinex',
-			logo: 'vibinex.png',
+			logo: 'Vibinex.png',
 			link: 'https://vibinex.com',
 			tags: ['startup', 'exp']
 		},
