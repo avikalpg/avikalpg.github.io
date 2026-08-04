@@ -1,26 +1,29 @@
 document.addEventListener('DOMContentLoaded', function () {
-	// Executing all the functions required
 	fillDateFromMetaToBody();
 	addCounterElements();
+	addArticleNavigation();
 });
 
-/** write the date based on meta tag */
+/** Write the date based on the page's meta tag. */
 function fillDateFromMetaToBody() {
-	const meta_tags = document.getElementsByTagName('meta');
-	for (i = 0; i < meta_tags.length; i++) {
-		if (meta_tags[i].getAttribute('name') == 'date') {
-			console.log(document.getElementById('publishDate').innerHTML);
-			document.getElementById('publishDate').innerHTML = "Date: " + meta_tags[i].getAttribute('content');
-		}
+	const publishDate = document.getElementById('publishDate');
+	const dateMeta = document.querySelector('meta[name="date"]');
+
+	if (publishDate && dateMeta) {
+		publishDate.textContent = `Date: ${dateMeta.getAttribute('content')}`;
 	}
 }
 
-/** Add view counter and like button dynamically */
+/** Add view counter and like button dynamically. */
 function addCounterElements() {
+	const articleControls = document.querySelector('.article-controls');
+	if (!articleControls) {
+		return;
+	}
+
 	// Get the article identifier from the filename or another unique attribute
 	const articleIdMeta = document.querySelector('meta[name="article-id"]');
 	const articleId = articleIdMeta ? articleIdMeta.getAttribute('content') : 'default-article-id';
-	console.log(`article id: ${articleId}`);
 
 	// Create view counter element
 	const viewCounter = document.createElement('div');
@@ -40,11 +43,8 @@ function addCounterElements() {
 	}
 
 	// Append elements to the article-controls div
-	const articleControls = document.querySelector('.article-controls');
-	if (articleControls) {
-		articleControls.appendChild(viewCounter);
-		articleControls.appendChild(likeButton);
-	}
+	articleControls.appendChild(viewCounter);
+	articleControls.appendChild(likeButton);
 
 	// Fetch and update view count
 	fetch(`https://counter.avikalp.workers.dev/api/avikalpg.github.io/views/blogview_${articleId}`)
@@ -85,4 +85,81 @@ function addCounterElements() {
 				likeButton.title = 'Like this article';
 			});
 	});
+}
+
+/**
+ * Add chronological previous/next links using the generated article list.
+ * The list is already sorted newest-first by src/blog_lists.py, so no second
+ * manually maintained article manifest is needed here.
+ */
+async function addArticleNavigation() {
+	try {
+		const response = await fetch('../list_pages/all.html');
+		if (!response.ok) {
+			throw new Error(`Article list request failed with status ${response.status}`);
+		}
+
+		const listDocument = new DOMParser().parseFromString(await response.text(), 'text/html');
+		const articles = Array.from(listDocument.querySelectorAll('a.article')).map(function (link) {
+			const href = link.getAttribute('href') || '';
+			return {
+				filename: decodeURIComponent(href.split('/').pop()),
+				title: link.querySelector('h2')?.textContent.trim() || 'Untitled article'
+			};
+		});
+		const currentFilename = decodeURIComponent(window.location.pathname.split('/').pop());
+		const currentIndex = articles.findIndex(function (article) {
+			return article.filename === currentFilename;
+		});
+
+		if (currentIndex === -1) {
+			return;
+		}
+
+		// Since the list is newest-first, the following item is chronologically
+		// previous (older), while the preceding item is next (newer).
+		const previousArticle = articles[currentIndex + 1];
+		const nextArticle = articles[currentIndex - 1];
+		if (!previousArticle && !nextArticle) {
+			return;
+		}
+
+		const navigation = document.createElement('nav');
+		navigation.className = 'article-navigation';
+		navigation.setAttribute('aria-label', 'More articles');
+
+		if (previousArticle) {
+			navigation.appendChild(createArticleNavigationLink(previousArticle, 'previous'));
+		}
+		if (nextArticle) {
+			navigation.appendChild(createArticleNavigationLink(nextArticle, 'next'));
+		}
+
+		document.body.appendChild(navigation);
+	} catch (error) {
+		// Navigation is progressive enhancement; the article remains readable
+		// if the generated list is temporarily unavailable.
+		console.error(`Failed to add article navigation: ${error}`);
+	}
+}
+
+function createArticleNavigationLink(article, direction) {
+	const link = document.createElement('a');
+	const isPrevious = direction === 'previous';
+	link.className = `article-navigation__link article-navigation__link--${direction}`;
+	link.href = article.filename;
+	link.rel = isPrevious ? 'prev' : 'next';
+	link.setAttribute('aria-label', `${isPrevious ? 'Previous' : 'Next'} article: ${article.title}`);
+
+	const directionLabel = document.createElement('span');
+	directionLabel.className = 'article-navigation__direction';
+	directionLabel.textContent = isPrevious ? 'Previous article' : 'Next article';
+
+	const title = document.createElement('strong');
+	title.className = 'article-navigation__title';
+	title.textContent = article.title;
+
+	link.appendChild(directionLabel);
+	link.appendChild(title);
+	return link;
 }
