@@ -60,8 +60,9 @@ const projectsData = {
 		},
 		{
 			title: "#PUMADive AI Engine",
-			shortDescription: "Rebuilt the dive-detection model behind PUMA's AI-led campaign with Virat Kohli.",
-			fullDescription: "I was brought in for 48 hours to salvage an AI-led campaign that was failing because of poor model accuracy. I rebuilt the dive-detection algorithm overnight and achieved the precision required for the live launch.",
+			shortDescription: "Built the core AI model for PUMA's viral marketing campaign.",
+			fullDescription: "As a part of KhiladiPro's team, developed the AI engine that analyzed user-submitted photos to detect and score their resemblance to PUMA's iconic logo leap, powering a viral marketing campaign that engaged millions of sports fans.",
+			image: "/images/projects/puma-dive.jpg",
 			techStack: ["Computer Vision", "Deep Learning", "Python", "Hugging Face"],
 			categories: ["ai-ml"],
 			links: [{ text: "Media Coverage", url: "https://www.financialexpress.com/business/brandwagon-puma-launches-ai-led-campaign-puma-dive-with-virat-kohli-3260697/" }],
@@ -69,17 +70,17 @@ const projectsData = {
 		},
 		{
 			title: "Alokit.in",
-			shortDescription: "A ticket-based platform connecting students with paid industry projects.",
-			fullDescription: "During the first COVID wave, I built a mentorship and project platform that reduces outsourcing risk by linking compensation to tickets and milestones. It connected students losing internships with paid industry work; one early mentee later published as a first author at EMNLP.",
+			shortDescription: "Technical team building platform for outsourcing development and running a robust hiring process.",
+			fullDescription: "In 2020, when students were losing internship opportunities, I built this platform to connect students with professionals and engage them in an audition project—a tool that safeguards both parties using monetary investments and payouts.",
 			techStack: ["ReactJS", "Node.js", "Firebase", "Material UI"],
 			categories: ["startups", "dev-tools", "social"],
-			links: [{ text: "Visit Website", url: "https://alokit.in" }],
+			links: [{ text: "Start an audition project", url: "https://alokit.in" }],
 			featured: true
 		},
 		{
 			title: "Free Time",
-			shortDescription: "A calculator that reveals the time people can reclaim for things they love.",
-			fullDescription: "I built this calculator after repeatedly explaining the 168-hours-in-a-week exercise to people who felt permanently busy. After accounting for work, sleep, and routines, most users discover more than 20 hours of untapped capacity each week; the app can also suggest ways to use it.",
+			shortDescription: "Tool to help you recognize the amount of time you have in your life for things that you love.",
+			fullDescription: "This React Native app uses a simple premise that there are 168 hours in a week and uses simple math to bring out an impactful insight and help its users prioritize. It then uses the in-browser Prompt API to provide time-management suggestions.",
 			techStack: ["JavaScript", "React Native", "Expo", "Recharts", "Gemini Nano"],
 			categories: ["social", "ai-ml"],
 			links: [
@@ -106,8 +107,7 @@ const projectsData = {
 			categories: ["dev-tools"],
 			links: [
 				{ text: "Create your Skyline", url: "https://skyline3d.in" },
-				{ text: "Source Code", url: "https://github.com/avikalpg/skyline" },
-				{ text: "GitHub Community", url: "https://github.com/orgs/community/discussions/136395" }
+				{ text: "Source Code", url: "https://github.com/avikalpg/skyline" }
 			],
 			featured: true
 		},
@@ -143,14 +143,6 @@ const projectsData = {
 			links: [{ text: "Install Extension", url: "https://marketplace.visualstudio.com/items?itemName=vibinex.hustler" }]
 		},
 		{
-			title: "GetMega Gaming Application",
-			shortDescription: "The core Android application and high-stakes game systems behind GetMega.",
-			fullDescription: "As the founding Android engineer, I architected the core application that scaled for four years. I personally owned high-stakes modules including multiplayer synchronization, Elo-based matchmaking, and anti-fraud and collusion systems.",
-			techStack: ["Android", "Kotlin", "Real-time Multiplayer", "Fraud Detection"],
-			categories: ["games", "startups", "ai-ml"],
-			links: []
-		},
-		{
 			title: "Poker Friends Bot Interface",
 			shortDescription: "Extended an open-source poker game with a comprehensive bot interface for RL training.",
 			fullDescription: "To facilitate reinforcement-learning model training at GetMega, I adapted a multiplayer Texas Hold'em project so automated agents could join and play through a complete bot interface.",
@@ -168,7 +160,10 @@ const projectsData = {
 			fullDescription: "This project won the global Industry category in Microsoft's 2016 //oneweek hackathon. I developed a dual-app system: one application for smartphone-bearing helium balloons to map terrain, and another for farmers to monitor coverage in real time.",
 			techStack: ["Android", "Computer Vision", "IoT", "Aerial Imaging"],
 			categories: ["ai-ml", "social"],
-			links: [{ text: "FarmBeats", url: "https://www.microsoft.com/en-us/research/project/farmbeats-iot-agriculture/" }]
+			links: [
+				{ text: "FarmBeats", url: "https://www.microsoft.com/en-us/research/project/farmbeats-iot-agriculture/" },
+				{ text: "View Patent", url: "https://patents.google.com/patent/US20180213187A1/" }
+			]
 		},
 		{
 			title: "Visual Guidance for a 3-DOF Robotic Arm",
@@ -196,14 +191,6 @@ const projectsData = {
 			techStack: ["Android", "IoT", "Java", "GSM"],
 			categories: ["social"],
 			links: [{ text: "Source Code", url: "https://github.com/avikalpg/Pristine/" }]
-		},
-		{
-			title: "react-faq-component Contribution",
-			shortDescription: "Open-source styling enhancements for a reusable React FAQ component.",
-			fullDescription: "I contributed custom sizing and padding functionality to react-faq-component, making the library easier to adapt to different layouts and visual systems.",
-			techStack: ["React", "JavaScript", "Open Source"],
-			categories: ["dev-tools"],
-			links: [{ text: "View Contribution", url: "https://github.com/avikalpg/react-faq-component" }]
 		},
 		{
 			title: "Car Simulation in C++",

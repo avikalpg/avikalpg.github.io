@@ -133,13 +133,13 @@ const profileLogos = {
 	allLogos: [
 		{
 			name: 'Wrong by Default',
-			logo: 'wrong-by-default.ico',
+			logo: 'wrong-by-default.png',
 			link: 'https://wrongbydefault.com',
 			tags: ['proj']
 		},
 		{
 			name: 'BYOK Relay',
-			logo: 'byok-relay.ico',
+			logo: 'byok-relay.png',
 			link: 'https://byokrelay.com',
 			tags: ['proj']
 		},
