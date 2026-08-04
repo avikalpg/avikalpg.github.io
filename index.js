@@ -142,7 +142,7 @@ const profileLogos = {
 			name: 'Antler',
 			logo: 'Antler.svg',
 			link: 'https://www.antler.co',
-			tags: ['alumnus']
+			tags: ['alumnus', 'startup']
 		},
 		{
 			name: 'BYOK Relay',
@@ -274,7 +274,7 @@ const profileLogos = {
 			name: 'South Park Commons',
 			logo: 'South_Park_Commons.png',
 			link: 'https://www.southparkcommons.com',
-			tags: ['alumnus']
+			tags: ['member', 'alumnus', 'startup']
 		},
 		{
 			name: 'Stanford University',
@@ -286,7 +286,7 @@ const profileLogos = {
 			name: 'StartX',
 			logo: 'StartX.png',
 			link: 'https://web.startx.com',
-			tags: ['alumnus']
+			tags: ['alumnus', 'startup']
 		},
 		{
 			name: 'Sudoku Helper',
