@@ -175,6 +175,12 @@ const profileLogos = {
 			tags: ['proj']
 		},
 		{
+			name: 'Emergent',
+			logo: 'Emergent.svg',
+			link: 'https://emergent.sh',
+			tags: ['exp']
+		},
+		{
 			name: 'Fresh Gravity',
 			logo: 'Fresh_Gravity.png',
 			link: 'https://freshgravity.com',
@@ -269,6 +275,12 @@ const profileLogos = {
 			logo: 'SudokuHelperLogo.png',
 			link: 'https://chromewebstore.google.com/detail/sudoku-solver/hbnnbafoijebdcdgicccgjmmhlabimgo',
 			tags: ['proj']
+		},
+		{
+			name: 'TagMango',
+			logo: 'TagMango.svg',
+			link: 'https://tagmango.com',
+			tags: ['exp']
 		},
 		{
 			name: 'Typing Analyst',
