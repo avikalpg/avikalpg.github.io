@@ -1,10 +1,11 @@
 :root {
-	--primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-	--secondary-background: #f4f5f7;
-	--text-color: #333;
-	--subtext-color: #666;
-	--accent-color: #5a67d8;
-	--light-accent: #e6e9f0;
+	--primary-gradient: linear-gradient(0deg, #395AFF 0%, #7488ff 100%);
+	--secondary-background: #f8f9fc;
+	--text-color: #1a1d2e;
+	--subtext-color: #8b8fa5;
+	--accent-color: #395AFF;
+	--light-accent: #eef1ff;
+	--heading-font: 'TASA Explorer', sans-serif;
 }
 
 * {
@@ -69,6 +70,8 @@ nav .logo {
 	color: var(--text-color);
 	display: flex;
 	align-items: center;
+	font-family: var(--heading-font);
+	font-weight: 600;
 	font-size: x-large;
 	text-decoration: none;
 }
@@ -103,10 +106,16 @@ nav .logo img {
 	transform: scale(1.05);
 }
 
+.nav-btn:focus-visible {
+	outline: 2px solid var(--accent-color);
+	outline-offset: 2px;
+	background-color: var(--secondary-background);
+}
+
 .say-hello-btn {
 	background-color: white;
 	color: var(--accent-color);
-	border-color: var(--accent-color);
+	border: 1px solid rgba(0, 0, 0, 0.1);
 	padding: 15px 40px;
 	border-radius: 3em;
 	font-weight: 500;
@@ -117,6 +126,11 @@ nav .logo img {
 
 .say-hello-btn:hover {
 	transform: scale(1.05);
+}
+
+.say-hello-btn:focus-visible {
+	outline: 2px solid var(--accent-color);
+	outline-offset: 2px;
 }
 
 .hamburger-menu {
