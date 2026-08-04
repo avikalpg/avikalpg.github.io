@@ -41,12 +41,27 @@ function getProjectsByCategory(categoryId) {
 function renderProjects(categoryId = 'all') {
 	const projectsContainer = document.querySelector('.projects-grid');
 	const projects = getProjectsByCategory(categoryId);
+	const category = projectsData.categories.find(item => item.id === categoryId);
+	const heading = document.getElementById('projects-list-heading');
+
+	heading.textContent = category ? category.name : 'All Projects';
 	projectsContainer.innerHTML = projects.map(createProjectCard).join('');
+}
+
+function renderAchievements() {
+	const achievementsContainer = document.querySelector('.achievements-grid');
+	achievementsContainer.innerHTML = projectsData.achievements.map(achievement => `
+		<article class="achievement-card">
+			<h3>${achievement.title}</h3>
+			<p>${achievement.description}</p>
+		</article>
+	`).join('');
 }
 
 // Consolidated event listeners
 document.addEventListener('DOMContentLoaded', () => {
 	renderProjects();
+	renderAchievements();
 
 	// Handle all click events through event delegation
 	document.addEventListener('click', (e) => {

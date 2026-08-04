@@ -32,23 +32,39 @@
 	border-color: #5a67d8;
 }
 
-.category-section {
+.category-section,
+.achievements-section {
 	margin-bottom: 4rem;
 }
 
-.projects-grid {
+.category-section > h2,
+.achievements-section > h2 {
+	text-align: center;
+}
+
+.projects-grid,
+.achievements-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	gap: 2rem;
 	margin-top: 1.5rem;
 }
 
-.project-card {
+.project-card,
+.achievement-card {
 	border: 1px solid #eee;
 	border-radius: 10px;
 	overflow: hidden;
 	transition: all 0.3s ease;
 	background-color: white;
+}
+
+.achievement-card {
+	padding: 1.5rem;
+}
+
+.achievement-card h3 {
+	margin-top: 0;
 }
 
 .card-preview {
@@ -101,7 +117,8 @@
 }
 
 @media (max-width: 768px) {
-	.projects-grid {
+	.projects-grid,
+	.achievements-grid {
 		grid-template-columns: 1fr;
 	}
 }
