@@ -134,6 +134,7 @@ const profileLogos = {
 		{
 			name: 'Wrong by Default',
 			logo: 'wrong-by-default.png',
+			logoClass: 'cover',
 			link: 'https://wrongbydefault.com',
 			tags: ['proj']
 		},
@@ -315,7 +316,7 @@ const profileLogos = {
 
 			const rotatingLogo = `
 			<a href="${logoItem.link}" target="_blank" class="logo-item ${this.orbitStrategy}" style="--i:${idx}; --offset:${offset}; --orbit-tilt:${orbitTilt}deg; --radius:${radius}px;">
-				<img src="/images/logos/${logoItem.logo}" alt="${logoItem.name}">
+				<img src="/images/logos/${logoItem.logo}" alt="${logoItem.name}"${logoItem.logoClass ? ` class="${logoItem.logoClass}"` : ''}>
 			</a>
 			`;
 			rotatingLogos.append(rotatingLogo);

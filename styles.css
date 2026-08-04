@@ -234,6 +234,11 @@
 	backface-visibility: hidden;
 }
 
+.logo-item img.cover {
+	object-fit: cover;
+	object-position: center;
+}
+
 .logo-item:hover {
 	filter: grayscale(0%);
 }

@@ -74,7 +74,7 @@ const projectsData = {
 			fullDescription: "In 2020, when students were losing internship opportunities, I built this platform to connect students with professionals and engage them in an audition project—a tool that safeguards both parties using monetary investments and payouts.",
 			techStack: ["ReactJS", "Node.js", "Firebase", "Material UI"],
 			categories: ["startups", "dev-tools", "social"],
-			links: [{ text: "Start an audition project", url: "https://alokit.in" }],
+			links: [{ text: "Start a project", url: "https://alokit.in" }],
 			featured: true
 		},
 		{
